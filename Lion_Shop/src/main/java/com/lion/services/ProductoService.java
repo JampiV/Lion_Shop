@@ -2,7 +2,10 @@ package com.lion.services;
 
 import com.lion.model.Producto;
 
+import java.util.List;
+
 public interface ProductoService {
     Producto crearProducto(Producto producto);
     Producto seleccionarProducto(Integer IdProducto);
+    List<Producto> listarProducto();
 }
