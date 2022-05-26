@@ -3,6 +3,7 @@ package com.lion.controller;
 import com.lion.model.Producto;
 import com.lion.repositories.ProductoRepository;
 import com.lion.services.ProductoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.lion.WrapperResponse;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,12 @@ public class ProductoController {
     public ResponseEntity<WrapperResponse<List<Producto>>> listarProducto(){
         List<Producto> productos=productoService.listarProducto();
         return new WrapperResponse<>(true, "success", productos).createResponse();
+    }
+
+    @PutMapping
+    public ResponseEntity<WrapperResponse<Producto>>modificarProducto(@RequestBody Producto producto){
+        Producto productoUpdate= productoService.modificarProducto(producto);
+        return new WrapperResponse<Producto>(true, "success", producto).createResponse(HttpStatus.OK);
     }
 
 }

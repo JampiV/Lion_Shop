@@ -29,4 +29,11 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepository.findAll();
     }
 
+    @Override
+    public Producto modificarProducto(Producto producto) {
+        return productoRepository.save(producto);
+    }
+
+
+
 }

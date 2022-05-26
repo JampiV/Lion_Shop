@@ -8,4 +8,6 @@ public interface ProductoService {
     Producto crearProducto(Producto producto);
     Producto seleccionarProducto(Integer IdProducto);
     List<Producto> listarProducto();
+    Producto modificarProducto(Producto producto);
+
 }
