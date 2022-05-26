@@ -43,5 +43,10 @@ public class ProductoController {
         Producto productoUpdate= productoService.modificarProducto(producto);
         return new WrapperResponse<Producto>(true, "success", producto).createResponse(HttpStatus.OK);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarProducto(@PathVariable ("id")Integer idproducto) {
+        productoService.eliminarProducto(idproducto);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    }
 
 }
