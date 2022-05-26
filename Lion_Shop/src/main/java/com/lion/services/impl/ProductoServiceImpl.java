@@ -33,7 +33,7 @@ public class ProductoServiceImpl implements ProductoService {
     public Producto modificarProducto(Producto producto) {
         return productoRepository.save(producto);
     }
-
-
+    @Override
+    public void eliminarProducto(Integer idproducto) {productoRepository.deleteById(idproducto);}
 
 }

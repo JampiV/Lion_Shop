@@ -9,5 +9,5 @@ public interface ProductoService {
     Producto seleccionarProducto(Integer IdProducto);
     List<Producto> listarProducto();
     Producto modificarProducto(Producto producto);
-
+    void eliminarProducto(Integer idproducto);
 }
