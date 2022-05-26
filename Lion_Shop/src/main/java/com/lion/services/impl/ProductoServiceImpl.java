@@ -17,4 +17,10 @@ public class ProductoServiceImpl implements ProductoService {
     public Producto crearProducto(Producto producto) {
         return productoRepository.save(producto);
     }
+
+    @Override
+    public Producto seleccionarProducto(Integer IdProducto) {
+        return productoRepository.findById(IdProducto).orElse(new Producto());
+    }
+
 }

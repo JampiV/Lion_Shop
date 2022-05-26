@@ -1,13 +1,11 @@
 package com.lion.controller;
 
 import com.lion.model.Producto;
+import com.lion.repositories.ProductoRepository;
 import com.lion.services.ProductoService;
 import org.springframework.http.ResponseEntity;
 import com.lion.WrapperResponse;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -25,4 +23,11 @@ public class ProductoController {
         Producto productoNew = productoService.crearProducto(producto);
         return new WrapperResponse<>(true, "message", producto).createResponse();
     }
+
+    @GetMapping("/{ProductId}")
+    public ResponseEntity<WrapperResponse<Producto>> SeleccionarProducto(@PathVariable("ProductId") Integer idProducto){
+        Producto producto=productoService.seleccionarProducto(idProducto);
+        return new WrapperResponse<>(true, "success", producto).createResponse();
+    }
+
 }

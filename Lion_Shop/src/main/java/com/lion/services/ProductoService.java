@@ -4,4 +4,5 @@ import com.lion.model.Producto;
 
 public interface ProductoService {
     Producto crearProducto(Producto producto);
+    Producto seleccionarProducto(Integer IdProducto);
 }
