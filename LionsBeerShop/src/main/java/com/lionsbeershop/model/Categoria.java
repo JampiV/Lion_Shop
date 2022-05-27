@@ -1,5 +1,6 @@
 package com.lionsbeershop.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class Categoria {
     @Column(name = "category_description", nullable = false, length = 200)
     private String descripcion_categoria;
 
+    @JsonBackReference
     @OneToMany(mappedBy ="category")
     private List<Producto> producto;
 
