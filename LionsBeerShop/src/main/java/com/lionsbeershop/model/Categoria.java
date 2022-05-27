@@ -32,4 +32,36 @@ public class Categoria {
 
     @OneToMany(mappedBy ="category")
     private List<Producto> producto;
+
+    public Integer getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    public String getNombre_categoria() {
+        return nombre_categoria;
+    }
+
+    public void setNombre_categoria(String nombre_categoria) {
+        this.nombre_categoria = nombre_categoria;
+    }
+
+    public String getDescripcion_categoria() {
+        return descripcion_categoria;
+    }
+
+    public void setDescripcion_categoria(String descripcion_categoria) {
+        this.descripcion_categoria = descripcion_categoria;
+    }
+
+    public List<Producto> getProducto() {
+        return producto;
+    }
+
+    public void setProducto(List<Producto> producto) {
+        this.producto = producto;
+    }
 }
