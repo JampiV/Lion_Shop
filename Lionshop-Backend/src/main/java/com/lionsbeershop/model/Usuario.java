@@ -37,6 +37,11 @@ public class Usuario {
     @Column(name = "direccion_usuario", length = 100)
     private String direccionUsuario;
 
+    @ManyToOne
+    @JoinColumn(name = "id_rol", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_id_rol"))
+    private Rol rol;
+
     public Integer getIdUsuario() {
         return idUsuario;
     }
@@ -75,5 +80,13 @@ public class Usuario {
 
     public void setDireccionUsuario(String direccionUsuario) {
         this.direccionUsuario = direccionUsuario;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }
