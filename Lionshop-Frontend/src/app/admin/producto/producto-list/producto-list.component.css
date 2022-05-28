@@ -14,9 +14,10 @@
   }
   
   .mat-table {
-      position: absolute;
+      position: relative;
+      flex: 100%;
       display: center;
-      padding-left: 400px;
+      padding-left: 300px;
       border-radius: 25px;
       background-color: #F3F3F3;
   }
