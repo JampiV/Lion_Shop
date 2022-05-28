@@ -13,7 +13,7 @@ autocomplete="off"
         <div *ngIf="form.controls['nombreUsuario'].errors?.['minlength']" style="margin: -5px 0px 20px 0px">El nombre de usuario debe de ser al menos de 3 caracteres.</div>
         <div *ngIf="form.controls['nombreUsuario'].errors?.['maxlength']" style="margin: -5px 0px 20px 0px">El nombre de usuario debe de ser menor de 100 caracteres.</div>
 
-        <input type="text" formControlName="direccion" placeholder="direccion">
+        <input type="text" formControlName="direccionUsuario" placeholder="direccionUsuario">
 
         <input type="text" formControlName="contrasenaUsuario" placeholder="Contraseña">
         <div *ngIf="form.controls['contrasenaUsuario'].errors?.['minlength']" style="margin: -5px 0px 20px 0px">La contraseña debe de ser al menos de 6 caracteres.</div>
