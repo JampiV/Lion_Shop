@@ -20,7 +20,7 @@ export class NewProductoComponent implements OnInit {
     this.productoService.create(producto).subscribe(
       (res) => {
         console.log(res);
-        this.router.navigate(['/admin/producto']);
+        this.router.navigate(['/admin/productos']);
       },
       (err) => {
         console.log(err);

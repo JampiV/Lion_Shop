@@ -4,6 +4,6 @@ export class Producto {
     nombre_producto: string;
     costo_producto: number;
     categoria_producto: string;
-    categoria: Object; 
+    category: Object; 
 }
   

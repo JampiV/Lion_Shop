@@ -20,7 +20,7 @@
               </mat-error>
               
           </mat-form-field>
-
+      
           <mat-form-field appearance="outline" class="d-block">
               <mat-label>Categoria Producto</mat-label>
               <input 
@@ -35,7 +35,7 @@
               
           </mat-form-field>
 
-       <!--   <mat-form-field appearance="outline" class="d-block">
+        <!--  <mat-form-field appearance="outline" class="d-block">
             <mat-label>ID Categoria</mat-label>
             <input 
               matInput
@@ -47,11 +47,12 @@
                 Este Campo es obligatorio
             </mat-error> 
             
-        </mat-form-field>  -->
+        </mat-form-field>
+        -->
 
         <mat-form-field appearance="outline">
           <mat-label>Elije la categoría</mat-label>
-              <mat-select formControlName="categoria" name="categoria">
+              <mat-select formControlName="category" name="category">
                 <mat-option *ngFor="let categoria of categoriasid" [value]="categoria">
                   {{categoria.nombre_categoria}}
                 </mat-option>

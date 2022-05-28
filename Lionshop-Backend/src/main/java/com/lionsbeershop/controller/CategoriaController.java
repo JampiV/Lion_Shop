@@ -3,6 +3,7 @@ package com.lionsbeershop.controller;
 import com.lionsbeershop.WrapperResponse;
 import com.lionsbeershop.model.Categoria;
 import com.lionsbeershop.services.CategoriaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,10 +27,15 @@ public class CategoriaController {
     }
 
     @GetMapping
-    public ResponseEntity<WrapperResponse<List<Categoria>>>listarCategorias(){
+    public ResponseEntity<List<Categoria>>listarCategorias(){
         List<Categoria> categoriaList=categoriaService.listarCategorias();
-        return new WrapperResponse<>(true, "success",
-                categoriaList).createResponse();
+        return new ResponseEntity<List<Categoria>> (categoriaList, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/ides")
+    public ResponseEntity<WrapperResponse<List<Integer>>>listarIdCategoria(){
+        List<Integer> idesCategoria = categoriaService.listarIdCategoria();
+        return new WrapperResponse<>(true, "success", idesCategoria).createResponse();
     }
 
 }

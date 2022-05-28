@@ -16,6 +16,10 @@ private apiBase: string = environment.apiBase;
     return this.http.get<Categoria[]>(`${this.apiBase}/categoria`);
   }
 
+  getAllIdsCategorias() {
+    return this.http.get<number[]>(`${this.apiBase}/categoria/ides`);
+  }
+
   get(id: number) {
     return this.http.get(`${this.apiBase}/categoria/${id}`);
   }

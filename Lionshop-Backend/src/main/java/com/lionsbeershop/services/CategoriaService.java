@@ -8,4 +8,5 @@ public interface CategoriaService {
 
     Categoria crearCategoria(Categoria categoria);
     List<Categoria> listarCategorias();
+    List<Integer> listarIdCategoria();
 }

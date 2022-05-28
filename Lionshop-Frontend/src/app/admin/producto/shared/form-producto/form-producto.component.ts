@@ -19,11 +19,12 @@ export class FormProductoComponent implements OnInit {
 
   form: FormGroup;
   @Input() producto: Producto = new Producto();
-  @Output() onSave: EventEmitter<any>= new EventEmitter();
+  @Output() onSubmit: EventEmitter<any>= new EventEmitter();
   
   categoriasid: Categoria [];
 
-  onSubmit: any;
+ 
+ // onSubmit: any;
   constructor(
     private productoService: ProductoService,
     private formBuilder:FormBuilder,
@@ -52,9 +53,9 @@ export class FormProductoComponent implements OnInit {
         //FALTA VER    Validators.maxLength(100),
           ],
         ],
-        categoria_producto: "lo_QUESEA",
-        categoria: [
-          this.producto.categoria,
+        categoria_producto: "Categoria_CualquierCosa",
+        category: [
+          this.producto.category,
           [
             Validators.required,
           ],
