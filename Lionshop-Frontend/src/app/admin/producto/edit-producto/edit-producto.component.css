@@ -1,102 +1,34 @@
 .caja{
-    font-family: 'Signika', sans-serif;
-    padding: 30px;
-    margin-top:30px;
-    margin-left: 50px;
-    margin-right: 50px;
-    background-color: #F3F3F3;
-    border-radius: 25px;
+  font-family: 'Signika', sans-serif;
+  padding: 30px;
+  margin-top:30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: #F3F3F3;
+  border-radius: 25px;
 
 }
 h1{
-    font-family: Signika;
-    font-weight: bold;
-    display: inline-block;
+  font-family: Signika;
+  font-weight: bold;
+  display: inline-block;
 }
 mat-icon{
-    padding-left: 20px;
-    display: inline-block;
+  padding-left: 20px;
+  display: inline-block;
 }
 .fila{
-    display: flex;
+  display: flex;
 }
 .columna-1{
-    flex: 90%;
+  flex: 90%;
 }
 .columna-2{
-    flex: 10%;
+  flex: 10%;
 }
 
 .portada{
-    margin-top: 20px;
-    border-radius: 5px;
-    padding-right: 70px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding-right: 70px;
 }
-
-.customWidthClass{
-    flex: 0 0 1000px;
-  }
-  
-  .container2{
-    font-family: 'Signika', sans-serif;
-    padding: 30px;
-    margin-top:30px;
-    margin-left: 50px;
-    margin-right: 50px;
-    background-color: #F3F3F3;
-    border-radius: 25px;
-  
-  }
-  
-  .mat-table {
-      position: absolute;
-      display: center;
-      padding-left: 400px;
-  }
-  .container1{
-    font-family: 'Signika', sans-serif;
-    padding: 30px;
-    margin-top:30px;
-    margin-left: 50px;
-    margin-right: 50px;
-    background-color: #ffffff;
-    border-radius: 25px;
-    text-align: center !important;
-  
-  }
-  
-  h1{
-    font-family: Signika;
-    font-weight: bold;
-    display: inline-block;
-  }
-  .icono{
-    padding-left: 30px;
-  }
-  
-  .row2{
-    display: flex;
-  }
-  .fw-bold{
-    flex: 90%;
-  }
-  .col-2{
-    flex: 10%;
-  }
-  
-  
-  mat-form-field{
-    width: 100%;
-  }
-  
-  table{
-    width: 100%;
-    border-radius: 50px;
-  }
-  
-  .material-cust-large-button {
-    width: 170px;
-    font-family: Signika;
-    margin-top: 10px;
-    margin-left: 50px;
-  }

@@ -1,20 +1,23 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Product } from './product.model';
+import { Producto } from './product.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
-  private apiBase: string = environment.apiBase;
-  constructor( private http:HttpClient) {}
+export class ProductoService {
 
-  getAllProducts(){
-    return this.http.get<Product[]>(`${this.apiBase}/productos`);
+private apiBase: string = environment.apiBase;
+
+  constructor(private http: HttpClient) {}
+
+  getAllProductos() {
+    return this.http.get<Producto[]>(`${this.apiBase}/producto`);
   }
-  getProductoById(idProducto:number){
-    return this.http.get<Product[]>(`${this.apiBase}/productos/${idProducto}`);
+
+  get(id: number) {
+    return this.http.get(`${this.apiBase}/producto/${id}`);
   }
-   
+
 }

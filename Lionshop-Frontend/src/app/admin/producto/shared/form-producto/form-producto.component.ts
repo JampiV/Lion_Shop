@@ -53,7 +53,7 @@ export class FormProductoComponent implements OnInit {
         //FALTA VER    Validators.maxLength(100),
           ],
         ],
-        categoria_producto: "Categoria_CualquierCosa",
+        categoria_producto: "roncito",
         category: [
           this.producto.category,
           [

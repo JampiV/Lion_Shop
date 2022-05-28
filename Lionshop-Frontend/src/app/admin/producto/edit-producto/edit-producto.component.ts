@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Producto } from '../shared/producto.model';
 import { ProductoService } from '../shared/producto.service';
 
@@ -13,50 +12,16 @@ import { ProductoService } from '../shared/producto.service';
 })
 export class EditProductoComponent implements OnInit {
 
-  idProducto : number;
-  public producto:Producto;
+  constructor(public productoService: ProductoService, private router: Router) {}
 
-  @Input() productoEdit: Producto = new Producto();
+  ngOnInit(): void {}
 
-  constructor(public productoService: ProductoService,private router:Router,
-    private activeRoute: ActivatedRoute,  private formBuilder: FormBuilder) { 
-      this.activeRoute.paramMap.subscribe(paramMap =>{
-        this.idProducto = Number(paramMap.get('id'));
-        this.productoService.get(this.idProducto).subscribe((data:any)=>{
-          this.producto=data;
-          console.log(this.producto);
-        });
-      })
-    }
-
-  ngOnInit(): void {
-  }
-
-  update(producto:any){
+  editProducto(producto:Producto){
     this.productoService.update(producto).subscribe(
-      (res)=>{
-        console.log(res);
-        this.router.navigate(['/productos'])
+      ()=>{
+        this.router.navigate(['/admin/productos']);
       },
-      (err)=> {
-        console.log(err);
-      }
+      (error: any)=> {}
     );
   }
-  
-  form=new FormGroup({
-      nombre_producto: new FormControl('',Validators.required),
-      categoria_producto: new FormControl('',Validators.required),
-      costo_producto: new FormControl('',Validators.required),
-  });
-
-  save(form: Producto){
-    form.idProducto = this.idProducto;
-    this.productoService.update(form).subscribe(()=>{
-      this.router.navigate(['/productos']);
-    },(error:any)=>{
-
-    })
-  }
-
 }

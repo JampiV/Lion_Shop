@@ -1,34 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Producto } from '../shared/product.model';
+import { ProductoService } from '../shared/product.service';
 
-import { Product } from '../shared/product.model';
-import { ProductService } from '../shared/product.service';
+
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
-  dataSource1 : MatTableDataSource <Product>;
-  displayedColumns: string[] = ['idProducto','nombreP', 'precioP', 'Ver' ];
-  constructor(
-    private productService: ProductService
-  ) { }
+export class ProductoListComponent implements OnInit {
+
+  displayedColumns: string[] = ['idProducto', 'nombre_producto', 'categoria_producto', 'costo_producto'];
+  dataSource : MatTableDataSource<Producto>;
+
+
+  constructor(private productoService:ProductoService) { }
 
   ngOnInit(): void {
-    this.getAllProducts();
-    
+    this.getAllProductos();
   }
 
-  getAllProducts(){
-    this.productService.getAllProducts().subscribe((data: any)=>{
-      console.log(data['body']);
-      this.dataSource1 = new MatTableDataSource (data['body']);
-    })
+  getAllProductos(){
+    this.productoService.getAllProductos().subscribe((data:any)=>{
+          this.dataSource=new MatTableDataSource(data['body']);
+          //console.log(data['body'])
+        });
   }
   applyFilter(value: string) {
-    this.dataSource1.filter = value.trim().toLowerCase();
+    this.dataSource.filter = value.trim().toLowerCase();
   }
+
 
 }

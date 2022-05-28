@@ -1,20 +1,19 @@
-<mat-toolbar color="primary">
-    <span>I want</span>
+<mat-toolbar>
+  <img class="logo" src="../../assets/logolions2.png" alt="Lionshop">
+  <span>Lion Shop Cliente</span>
+
+  <div class="column-1-T">
+  </div>
+  <div class="column-2-I">
   
-    <button mat-button routerLink="/admin/coffes" class="ms-2">to</button>
-  
-    <span class="spacer"></span>
-  
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>account_circle</mat-icon> Die
-    </button>
-  
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="../">
-        <mat-icon>logout</mat-icon> Cerrar sesión
-      </button>
-    </mat-menu>
-  </mat-toolbar>
-  
-  
+  <button mat-button routerLink="../user/productos" class="ms-2">
+      Productos
+  </button>
+
+  <button mat-button routerLink="/" class="ms-2">Cerrar Sesión</button>
+</div>
+
+  <span class="spacer"></span>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
