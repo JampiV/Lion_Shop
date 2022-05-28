@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Producto } from '../shared/producto.model';
 import { ProductoService } from '../shared/producto.service';
 
 
@@ -15,7 +16,7 @@ export class NewProductoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  createProducto(producto: any) {
+  createProducto(producto:Producto) {
     this.productoService.create(producto).subscribe(
       (res) => {
         console.log(res);

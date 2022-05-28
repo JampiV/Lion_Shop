@@ -25,6 +25,7 @@ export class ProductoListComponent implements OnInit {
   getAllProductos(){
     this.productoService.getAllProductos().subscribe((data:any)=>{
           this.dataSource=new MatTableDataSource(data['body']);
+          //console.log(data['body'])
         });
   }
 

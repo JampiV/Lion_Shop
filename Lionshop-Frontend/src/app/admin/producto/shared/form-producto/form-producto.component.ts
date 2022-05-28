@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Producto } from '../producto.model';
 import { ProductoService } from '../producto.service';
+import { Categoria } from '../../../categoria/shared/categoria.model';
+import { CategoriaService } from '../../../categoria/shared/categoria.service';
 
 
 
@@ -16,30 +18,55 @@ import { ProductoService } from '../producto.service';
 export class FormProductoComponent implements OnInit {
 
   form: FormGroup;
-  producto: Producto;
+  @Input() producto: Producto = new Producto();
   @Output() onSave: EventEmitter<any>= new EventEmitter();
+  
+  categoriasid: Categoria [];
+
+  onSubmit: any;
   constructor(
     private productoService: ProductoService,
     private formBuilder:FormBuilder,
-    private router:Router
+    private router:Router,
+    private categoriaService:CategoriaService
     ) { }
+
+    getAllCategorias(){
+      this.categoriaService.getAllCategorias().subscribe((data)=>{
+        this.categoriasid=data;
+        console.log(data);
+      })
+    }
   
   
     ngOnInit(): void {
-      this.form=new FormGroup({
-        nombre_producto: new FormControl('',Validators.required),
-        categoria_producto: new FormControl('',Validators.required),
-        costo_producto: new FormControl('',Validators.required),
+      this.getAllCategorias();
+
+      this.form = this.formBuilder.group({
+
+        nombre_producto: [
+          this.producto.nombre_producto,
+          [//FALTA VER
+            Validators.required,
+            Validators.minLength(2),
+        //FALTA VER    Validators.maxLength(100),
+          ],
+        ],
+        categoria_producto: "lo_QUESEA",
+        categoria: [
+          this.producto.categoria,
+          [
+            Validators.required,
+          ],
+        ],
+        costo_producto: [
+          this.producto.costo_producto
+        ],
       });
     }
     
     save(){
-      let producto = new Producto();
-      
-      producto.nombre_producto=this.form.value['nombre_producto']
-      producto.categoria_producto=this.form.value['categoria_producto']
-      producto.costo_producto=this.form.value['costo_producto']
-      this.onSave.emit(producto);
+      this.onSubmit.emit(this.form.value);
     }
 
 }

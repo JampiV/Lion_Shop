@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrarUsuarioComponent } from './registrar/registrar-usuario/registrar-usuario.component';
 import { NewCategoriaComponent } from './admin/categoria/new-categoria/new-categoria.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NewCategoriaComponent } from './admin/categoria/new-categoria/new-categ
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

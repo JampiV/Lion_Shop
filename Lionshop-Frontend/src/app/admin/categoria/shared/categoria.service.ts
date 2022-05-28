@@ -13,22 +13,22 @@ private apiBase: string = environment.apiBase;
   constructor(private http: HttpClient) {}
 
   getAllCategorias() {
-    return this.http.get<Categoria[]>(`${this.apiBase}/categorias`);
+    return this.http.get<Categoria[]>(`${this.apiBase}/categoria`);
   }
 
   get(id: number) {
-    return this.http.get(`${this.apiBase}/categorias/${id}`);
+    return this.http.get(`${this.apiBase}/categoria/${id}`);
   }
 
   create(categoria: Categoria) {
-    return this.http.post(`${this.apiBase}/categorias`, categoria);
+    return this.http.post(`${this.apiBase}/categoria`, categoria);
   }
 
   update(categoria: Categoria) {
-    return this.http.put(`${this.apiBase}/categorias`, categoria);
+    return this.http.put(`${this.apiBase}/categoria`, categoria);
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.apiBase}/categorias/${id}`);
+    return this.http.delete(`${this.apiBase}/categoria/${id}`);
   }
 }

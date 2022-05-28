@@ -9,6 +9,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormProductoComponent } from './producto/shared/form-producto/form-producto.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormProductoComponent } from './producto/shared/form-producto/form-prod
     CommonModule,
     AdminRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ]
 })
 export class AdminModule { }
