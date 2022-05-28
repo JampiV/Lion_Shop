@@ -10,7 +10,7 @@ import { CategoriaService } from '../shared/categoria.service';
 })
 export class CategoriaListComponent implements OnInit {
 
-  displayedColumns: string[] = ['idCategoria', 'nombre_categoria', 'descripcion_categoria'];
+  displayedColumns: string[] = ['idCategoria', 'nombre_categoria', 'descripcion_categoria', 'acciones'];
   dataSource : MatTableDataSource<Categoria>;
 
 
