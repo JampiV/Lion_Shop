@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from '../shared/producto.model';
 import { ProductoService } from '../shared/producto.service';
 
@@ -12,11 +12,24 @@ import { ProductoService } from '../shared/producto.service';
 })
 export class EditProductoComponent implements OnInit {
 
-  constructor(public productoService: ProductoService, private router: Router) {}
+  producto : Producto;
+  id: number;
+  constructor(public productoService: ProductoService, private router: 
+    Router, private activatedRouter: ActivatedRoute) {
+    this.activatedRouter.paramMap.subscribe(params => {
+      this.productoService.get(Number(params.get('id'))).subscribe((product : any)=>{
+        this.producto = product['body'];
+        this.id = product['body'].idProduct;
+      })
+    })
+  }
 
   ngOnInit(): void {}
 
   editProducto(producto:Producto){
+    producto.idProduct=this.id;
+    console.log('edit',producto.idProduct);
+    console.log(producto);
     this.productoService.update(producto).subscribe(
       ()=>{
         this.router.navigate(['/admin/productos']);

@@ -26,7 +26,12 @@ const routes: Routes = [
       {
         path: 'categorias',
         component: CategoriaListComponent,
-      },    ]
+      },  
+      
+    
+    
+    
+    ]
   }
 ];
 

@@ -18,8 +18,12 @@ import { CategoriaService } from '../../../categoria/shared/categoria.service';
 export class FormProductoComponent implements OnInit {
 
   form: FormGroup;
-  @Input() producto: Producto = new Producto();
-  @Output() onSubmit: EventEmitter<any>= new EventEmitter();
+
+
+  @Input() set producto(producto: any) {
+    this.form?.patchValue(producto);
+  }
+  @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   
   categoriasid: Categoria [];
 
@@ -35,7 +39,6 @@ export class FormProductoComponent implements OnInit {
     getAllCategorias(){
       this.categoriaService.getAllCategorias().subscribe((data)=>{
         this.categoriasid=data;
-        console.log(data);
       })
     }
   
@@ -46,22 +49,22 @@ export class FormProductoComponent implements OnInit {
       this.form = this.formBuilder.group({
 
         nombre_producto: [
-          this.producto.nombre_producto,
+          '',
           [//FALTA VER
             Validators.required,
             Validators.minLength(2),
         //FALTA VER    Validators.maxLength(100),
           ],
         ],
-        categoria_producto: "roncito",
+        categoria_producto: '',
         category: [
-          this.producto.category,
+          '',
           [
             Validators.required,
           ],
         ],
         costo_producto: [
-          this.producto.costo_producto
+          ''
         ],
       });
     }

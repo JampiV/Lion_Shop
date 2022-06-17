@@ -22,8 +22,7 @@ export class CategoriaListComponent implements OnInit {
 
   getAllCategorias(){
     this.categoriaService.getAllCategorias().subscribe((data:any)=>{
-      console.log(data['body']) ; 
-      this.dataSource=new MatTableDataSource(data['body']);
+      this.dataSource=new MatTableDataSource(data);
         });
   }
 
