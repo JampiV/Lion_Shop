@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Categoria } from '../shared/categoria.model';
+import { CategoriaService } from '../shared/categoria.service';
 
 @Component({
   selector: 'app-new-categoria',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCategoriaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public categoriaService: CategoriaService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  createCategoria(categoria:Categoria) {
+    this.categoriaService.create(categoria).subscribe(
+      (res) => {
+        console.log(res);
+        this.router.navigate(['/admin/categorias']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
-
 }

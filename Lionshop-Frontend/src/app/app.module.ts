@@ -19,7 +19,6 @@ import { MatSelectModule } from '@angular/material/select';
     LoginComponent,
     RegistrarUsuarioComponent,
     FormRegistrarUsuarioComponent,
-    NewCategoriaComponent
   ],
   imports: [
     BrowserModule,
