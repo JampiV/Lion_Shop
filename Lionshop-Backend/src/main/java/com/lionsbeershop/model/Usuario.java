@@ -42,6 +42,21 @@ public class Usuario {
             foreignKey = @ForeignKey(name = "FK_id_rol"))
     private Rol rol;
 
+   //
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+        @ManyToMany
+        @JoinTable(name = "lista_de_compras", joinColumns = @JoinColumn(name = "id_lista_compra"),
+            inverseJoinColumns = @JoinColumn(name = "id_product"))
+        Set<Producto> lista_compra = new LinkedHashSet<>();
+
+    public Set<Producto> getLista_compra() {
+        return lista_compra;
+    }
+
+    public void setLista_compra(Set<Producto> lista_compra) {
+        this.lista_compra = lista_compra;
+    }
+
     public Integer getIdUsuario() {
         return idUsuario;
     }

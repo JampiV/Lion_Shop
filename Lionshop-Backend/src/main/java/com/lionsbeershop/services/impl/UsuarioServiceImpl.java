@@ -48,4 +48,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario fetchUserByCorreoyContra(String correoUsuario, String contrasenaUsuario){
         return usuarioRepository.findUsuarioByCorreoUsuarioAndContrasenaUsuario(correoUsuario, contrasenaUsuario);
     }
+
+    @Override
+    public void agregarProductoListaCompra(Usuario usuario, Producto producto) {
+        usuario.getLista_compra().add(producto);
+    }
+
 }

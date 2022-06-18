@@ -14,6 +14,7 @@ public interface UsuarioService {
     Usuario obtenerUsuarioPorIdUsuario(Integer idUsuario);
 
     Usuario fetchUserByCorreoyContra(String correoUsuario, String contrasenaUsuario);
+    void agregarProductoListaCompra(Usuario usuario,Producto producto);
 
 
 }

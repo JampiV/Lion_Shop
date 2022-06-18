@@ -1,5 +1,6 @@
 package com.lionsbeershop.controller;
 
+import com.lionsbeershop.model.Producto;
 import com.lionsbeershop.model.Usuario;
 import com.lionsbeershop.repositories.ProductoRepository;
 import com.lionsbeershop.repositories.UsuarioRepository;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -56,6 +58,19 @@ public class UsuarioController {
     public ResponseEntity<WrapperResponse<Usuario>> obtenerUsuarioPorIdUsuario(@PathVariable("idUsuario") Integer idUsuario) {
         Usuario usuario = usuarioService.obtenerUsuarioPorIdUsuario(idUsuario);
         return new WrapperResponse<>(true,"success",usuario).createResponse();
+    }
+    @PutMapping("/{idUsuario}/milista/{idProduct}")
+    public Usuario agregarProductoListaCompra(@PathVariable Integer idUsuario, @PathVariable Integer idProduct){
+        Producto producto = productoRepository.findById(idProduct).get();
+        Usuario usuario = usuarioRepository.findById(idUsuario).get();
+        usuarioService.agregarProductoListaCompra(usuario,producto);
+        return usuarioRepository.save(usuario);
+    }
+    
+    @GetMapping("{idUsuario}/milista")
+    public Set<Producto> obtenerListaCompraPorIdUsuario(@PathVariable("idUsuario") Integer idUsuario){
+        Usuario usuario = usuarioService.obtenerUsuarioPorIdUsuario(idUsuario);
+        return usuario.getLista_compra();
     }
 
 }
