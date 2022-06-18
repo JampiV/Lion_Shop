@@ -5,6 +5,7 @@ import { EditProductoComponent } from './producto/edit-producto/edit-producto.co
 import { NewProductoComponent } from './producto/new-producto/new-producto.component';
 import { ProductoListComponent } from './producto/producto-list/producto-list.component';
 import { CategoriaListComponent } from './categoria/categoria-list/categoria-list.component';
+import { NewCategoriaComponent } from './categoria/new-categoria/new-categoria.component';
 
 const routes: Routes = [
   {
@@ -26,11 +27,11 @@ const routes: Routes = [
       {
         path: 'categorias',
         component: CategoriaListComponent,
+      },
+      {
+        path: 'categorias/new',
+        component: NewCategoriaComponent,
       },  
-      
-    
-    
-    
     ]
   }
 ];

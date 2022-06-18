@@ -10,6 +10,9 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormProductoComponent } from './producto/shared/form-producto/form-producto.component';
 import { MatSelectModule } from '@angular/material/select';
+import { NewCategoriaComponent } from './categoria/new-categoria/new-categoria.component';
+import { FormCategoriaComponent } from './categoria/shared/form-categoria/form-categoria.component';
+
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { MatSelectModule } from '@angular/material/select';
     EditProductoComponent,
     FormProductoComponent,
     CategoriaListComponent,
-    LayoutComponent
+    NewCategoriaComponent,
+    LayoutComponent,
+    FormCategoriaComponent
   ],
   imports: [
     CommonModule,
