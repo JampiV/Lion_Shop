@@ -66,7 +66,7 @@ public class UsuarioController {
         usuarioService.agregarProductoListaCompra(usuario,producto);
         return usuarioRepository.save(usuario);
     }
-    
+
     @GetMapping("{idUsuario}/milista")
     public Set<Producto> obtenerListaCompraPorIdUsuario(@PathVariable("idUsuario") Integer idUsuario){
         Usuario usuario = usuarioService.obtenerUsuarioPorIdUsuario(idUsuario);

@@ -41,4 +41,5 @@ public class RolServiceImpl implements RolService {
     public Rol obtenerRolPorIdRol(Integer idRol) {
         return rolRepository.findById(idRol).orElse(new Rol());
     }
+
 }
