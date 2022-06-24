@@ -40,8 +40,8 @@ public class CompraServiceImpl implements CompraService{
         //Obtiene el subTotal
         compra.setSubtotal(obtenerSubtotal(compra));
         CompraValidator.validate(compra);
-        Set<Producto> nuevoCarrito = null;
-        usuarioFinal.setLista_compra(nuevoCarrito);
+        Set<Producto> nuevaLista = null;
+        usuarioFinal.setLista_compra(nuevaLista);
         usuarioRepository.save(usuarioFinal);
         // guarda la compra
         return compraRepository.save(compra);

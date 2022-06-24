@@ -6,20 +6,20 @@ import com.lionsbeershop.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 public class CompraValidator {
 
-    public static void validate(Compra compra){
+    public static void validate(Compra compra) {
 
-        if (compra.getEstadoCompra() == null){
+        if (compra.getEstadoCompra() == null) {
             throw new IncorrectResourceRequestException("El estado no puede estar vacío.");
         }
-        if (compra.getMetodoCompra() == null || compra.getMetodoCompra().trim().isEmpty()){
+        if (compra.getMetodoPago() == null || compra.getMetodoPago().trim().isEmpty()) {
             throw new IncorrectResourceRequestException("El método de pago no puede estar vacío.");
         }
 
-        if (compra.getMetodoCompra().length() < 3){
+        if (compra.getMetodoPago().length() < 3) {
             throw new IncorrectResourceRequestException("El método de pago debe ser mayor a 3 caracteres.");
         }
 
-        if (compra.getMetodoCompra().length() > 50){
+        if (compra.getMetodoPago().length() > 50) {
             throw new IncorrectResourceRequestException("El método de pago debe ser menor a 50 caracteres.");
         }
     }

@@ -48,5 +48,10 @@ public class ProductoController {
         productoService.eliminarProducto(idproducto);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
+    @GetMapping("/contar")
+    public ResponseEntity<WrapperResponse<Long>> contarProductos(){
+        Long producto = productoService.countProductos();
+        return new WrapperResponse<>(true, "success", producto).createResponse();
+    }
 
 }

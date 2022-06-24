@@ -35,4 +35,9 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public void eliminarProducto(Integer idproducto) {productoRepository.deleteById(idproducto);}
 
+
+    @Override
+    public Long countProductos() {
+        return productoRepository.contarProductos();
+    }
 }

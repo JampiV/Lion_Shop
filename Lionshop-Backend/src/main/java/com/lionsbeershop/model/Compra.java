@@ -40,8 +40,8 @@ public class Compra {
 
     @NotNull
     @Size(min = 3, max = 50, message = "El método de pago debe ser mínimo 3 caracteres y máximo 50.")
-    @Column(name = "metodo_Compra", nullable = false)
-    private String metodoCompra;
+    @Column(name = "metodo_pago", nullable = false)
+    private String metodoPago;
 
     @ManyToOne
     @JoinColumn(name = "id_estado", nullable = false, foreignKey = @ForeignKey(name = "FK_id_estado"))
@@ -95,12 +95,12 @@ public class Compra {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public String getMetodoCompra() {
-        return metodoCompra;
+    public String getMetodoPago() {
+        return metodoPago;
     }
 
-    public void setMetodoCompra(String metodoCompra) {
-        this.metodoCompra = metodoCompra;
+    public void setMetodoPago(String metodoPago) {
+        this.metodoPago = metodoPago;
     }
 
     public EstadoCompra getEstadoCompra() {return estadoCompra;}

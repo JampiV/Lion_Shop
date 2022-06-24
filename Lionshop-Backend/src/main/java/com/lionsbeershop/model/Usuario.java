@@ -37,12 +37,18 @@ public class Usuario {
     @Column(name = "direccion_usuario", length = 100)
     private String direccionUsuario;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany
+    @JoinTable(name = "carritos", joinColumns = @JoinColumn(name = "id_carrito"),
+            inverseJoinColumns = @JoinColumn(name = "id_product"))
+    Set<Producto> carritoCompras = new LinkedHashSet<>();
+
+
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable = false,
             foreignKey = @ForeignKey(name = "FK_id_rol"))
     private Rol rol;
 
-   //
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
         @ManyToMany
         @JoinTable(name = "lista_de_compras", joinColumns = @JoinColumn(name = "id_lista_compra"),
@@ -95,6 +101,14 @@ public class Usuario {
 
     public void setDireccionUsuario(String direccionUsuario) {
         this.direccionUsuario = direccionUsuario;
+    }
+
+    public Set<Producto> getCarritoCompras() {
+        return carritoCompras;
+    }
+
+    public void setCarritoCompras(Set<Producto> carritoCompras) {
+        this.carritoCompras = carritoCompras;
     }
 
     public Rol getRol() {

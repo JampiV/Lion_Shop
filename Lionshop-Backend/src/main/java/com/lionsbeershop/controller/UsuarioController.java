@@ -72,5 +72,27 @@ public class UsuarioController {
         Usuario usuario = usuarioService.obtenerUsuarioPorIdUsuario(idUsuario);
         return usuario.getLista_compra();
     }
+    @GetMapping("/{idUsuario}/carrito")
+    public Set<Producto> obtenerCarritoPorIdUsuario(@PathVariable("idUsuario") Integer idUsuario) {
+        Usuario usuario = usuarioService.obtenerUsuarioPorIdUsuario(idUsuario);
+        return usuario.getCarritoCompras();
+
+    }
+    @PutMapping("/{idUsuario}/carrito/{idProduct}")
+    public Usuario agregarProductoAlCarrito(@PathVariable Integer idUsuario, @PathVariable Integer idProduct) {
+        Producto productoN = productoRepository.findById(idProduct).get();
+        Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
+        usuarioService.agregarProductoAlCarrito(usuarioN, productoN);
+        return usuarioRepository.save(usuarioN);
+
+    }
+    @DeleteMapping("/{idUsuario}/carrito/{idProducto}")
+    public Usuario eliminarProductoAlCarrito(@PathVariable Integer idUsuario, @PathVariable Integer idProducto) {
+        Producto productoN = productoRepository.findById(idProducto).get();
+        Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
+        usuarioService.eliminarProductoAlCarrito(usuarioN, productoN);
+        return usuarioRepository.save(usuarioN);
+
+    }
 
 }

@@ -10,4 +10,7 @@ public interface ProductoService {
     List<Producto> listarProducto();
     Producto modificarProducto(Producto producto);
     void eliminarProducto(Integer idproducto);
+    Long countProductos();
+    interface RolService {
+    }
 }

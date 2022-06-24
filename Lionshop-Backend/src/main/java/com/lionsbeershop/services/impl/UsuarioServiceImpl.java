@@ -53,5 +53,19 @@ public class UsuarioServiceImpl implements UsuarioService {
     public void agregarProductoListaCompra(Usuario usuario, Producto producto) {
         usuario.getLista_compra().add(producto);
     }
+    @Override
+    public void agregarProductoAlCarrito(Usuario usuario, Producto producto) {
+
+        if(producto.getStockP()>0){
+            usuario.getCarritoCompras().add(producto);
+        }
+
+    }
+    @Override
+    public void eliminarProductoAlCarrito(Usuario usuario, Producto producto) {
+
+        usuario.getCarritoCompras().remove(producto);
+
+    }
 
 }

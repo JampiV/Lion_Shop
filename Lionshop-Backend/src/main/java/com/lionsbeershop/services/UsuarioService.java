@@ -13,8 +13,9 @@ public interface UsuarioService {
     List<Usuario> listarUsuario();
     Usuario obtenerUsuarioPorIdUsuario(Integer idUsuario);
 
-    Usuario fetchUserByCorreoyContra(String correoUsuario, String contrasenaUsuario);
     void agregarProductoListaCompra(Usuario usuario,Producto producto);
-
+    void agregarProductoAlCarrito(Usuario usuario, Producto producto);
+    void eliminarProductoAlCarrito(Usuario usuario, Producto producto);
+    Usuario fetchUserByCorreoyContra(String correoUsuario, String contrasenaUsuario);
 
 }
