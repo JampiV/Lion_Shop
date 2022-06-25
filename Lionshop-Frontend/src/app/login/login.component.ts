@@ -11,6 +11,7 @@ import { UsuarioService } from '../shared/usuario.service';
 export class LoginComponent implements OnInit {
   usuario=new Usuario();
   msg='';
+  id:any;
 
   constructor(private service: UsuarioService, private router:Router) { }
 
@@ -28,8 +29,8 @@ export class LoginComponent implements OnInit {
           console.log(res)
           var idRol= res.body.rol.idRol;
           console.log(idRol);
-          
-          sessionStorage.setItem('key',res);
+          this.id=res.body.idUsuario
+          sessionStorage.setItem('key',this.id);
           console.log(sessionStorage.getItem('key'))
           
           const{idUsuario} =res

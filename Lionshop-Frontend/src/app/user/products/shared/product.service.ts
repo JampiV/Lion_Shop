@@ -20,4 +20,8 @@ private apiBase: string = environment.apiBase;
     return this.http.get(`${this.apiBase}/producto/${id}`);
   }
 
+  agregarAlCarrito(idUsuario: number, idProducto: number){
+    return this.http.put(`${this.apiBase}/usuarios/${idUsuario}/milista/${idProducto}`, null);
+  }
+
 }
