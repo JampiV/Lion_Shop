@@ -12,6 +12,10 @@ import { FormProductoComponent } from './producto/shared/form-producto/form-prod
 import { MatSelectModule } from '@angular/material/select';
 import { NewCategoriaComponent } from './categoria/new-categoria/new-categoria.component';
 import { FormCategoriaComponent } from './categoria/shared/form-categoria/form-categoria.component';
+import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
+import { EditCompraComponent } from './compras/edit-compra/edit-compra.component';
+import { FormCompraComponent } from './compras/shared/form-compra/form-compra.component';
+import { EstadocompraListComponent } from './estadocompra/estadocompra-list/estadocompra-list.component';
 
 
 
@@ -24,7 +28,11 @@ import { FormCategoriaComponent } from './categoria/shared/form-categoria/form-c
     CategoriaListComponent,
     NewCategoriaComponent,
     LayoutComponent,
-    FormCategoriaComponent
+    FormCategoriaComponent,
+    CompraListComponent,
+    EditCompraComponent,
+    FormCompraComponent,
+    EstadocompraListComponent,
   ],
   imports: [
     CommonModule,

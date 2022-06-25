@@ -1,4 +1,4 @@
-import {DatosCompra} from "./datoscompra.model";
+import {InfoEnvioModel} from "./infoEnvio";
 
 export class Compra{
 
@@ -6,7 +6,7 @@ export class Compra{
     metodoPago:string
     costoEnvio:number
     estadoCompra:Object
-    DatosCompra: DatosCompra
+    infoEnvio: InfoEnvioModel
 
 
 }

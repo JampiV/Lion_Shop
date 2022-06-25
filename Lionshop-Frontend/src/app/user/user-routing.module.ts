@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProcesoCompraComponent } from './carrito/proceso-compra/proceso-compra.component';
 import { VerCarritoComponent } from './carrito/ver-carrito/ver-carrito.component';
 import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'milista',
         component: VerCarritoComponent
+      },
+      {
+        path: 'pago',
+        component: ProcesoCompraComponent
       },
     ]
   },

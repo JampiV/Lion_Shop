@@ -12,4 +12,20 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  irCompras(){
+    if(sessionStorage.getItem('key')==null){
+      const ok = confirm('Debes iniciar sesión para poder ver tus compras');
+    if(ok){
+      
+      window.location.replace(`../login`)
+    }
+    }
+    else{
+      window.location.replace(`../admin/compras`);
+    }
+   
+    
+
+  }
+
 }

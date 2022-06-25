@@ -6,6 +6,7 @@ import { NewProductoComponent } from './producto/new-producto/new-producto.compo
 import { ProductoListComponent } from './producto/producto-list/producto-list.component';
 import { CategoriaListComponent } from './categoria/categoria-list/categoria-list.component';
 import { NewCategoriaComponent } from './categoria/new-categoria/new-categoria.component';
+import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'categorias/new',
         component: NewCategoriaComponent,
+      },  
+      {
+        path: 'compras',
+        component: CompraListComponent,
       },  
     ]
   }

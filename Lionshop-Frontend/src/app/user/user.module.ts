@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UserRoutingModule } from './user-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { ProductoListComponent } from './products/product-list/product-list.component';
 import { MaterialModule } from '../material/material.module';
 import { VerCarritoComponent } from './carrito/ver-carrito/ver-carrito.component';
 import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
+import { ProcesoCompraComponent } from './carrito/proceso-compra/proceso-compra.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSelectModule} from "@angular/material/select";
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatNativeDateModule} from "@angular/material/core";
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -16,11 +24,21 @@ import { CompraListComponent } from './compras/ver-compras/ver-compras.component
     LayoutComponent,
     VerCarritoComponent,
     CompraListComponent,
+    ProcesoCompraComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    MaterialModule
+    MaterialModule,
+    MatProgressBarModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    NgxMaterialTimepickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTabsModule,
+    FormsModule,
+    MatIconModule
   ]
 })
 export class UserModule { }
