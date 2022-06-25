@@ -100,6 +100,11 @@ public class CompraServiceImpl implements CompraService{
         EstadoCompra enviado=estadoCompraRepository.compraEnviado();
         compra.setEstadoCompra(enviado);
     }
+    @Override
+    public List<Compra> listarComprasPorIdUsuario(Usuario usuario) {
+        List<Compra> usuarioId = compraRepository.listarComprasPorIdUsuario(usuario);
+        return usuarioId;
+    }
 
 }
 

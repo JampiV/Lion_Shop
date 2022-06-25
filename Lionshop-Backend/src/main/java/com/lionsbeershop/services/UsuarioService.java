@@ -15,6 +15,7 @@ public interface UsuarioService {
 
     void agregarProductoListaCompra(Usuario usuario,Producto producto);
     void agregarProductoAlCarrito(Usuario usuario, Producto producto);
+    void eliminarProductoAlCarrito(Usuario usuario, Producto producto);
     void eliminarProductoListaCompra(Usuario usuario, Producto producto);
     Usuario fetchUserByCorreoyContra(String correoUsuario, String contrasenaUsuario);
 

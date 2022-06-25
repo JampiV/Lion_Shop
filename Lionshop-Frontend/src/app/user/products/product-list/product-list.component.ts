@@ -38,14 +38,14 @@ export class ProductoListComponent implements OnInit {
   
   agregarAlCarrito(idProduct:any){
     if (sessionStorage.getItem('key')==null){
-      const oks = confirm('Debes iniciar sesión para poder agregar productos al carrito');
+      const oks = confirm('Debes iniciar sesión para poder agregar productos a la lista de deseos');
       if(oks){
         this.router.navigate(['../login']);
 
       }
     }
     else{
-      const ok = confirm('¿Estás seguro de agregar este producto al carrito de compras?');
+      const ok = confirm('¿Estás seguro de agregar este producto a la lista de deseos?');
     if(ok){
       this.productoService.agregarAlCarrito(Number(sessionStorage.getItem('key')),idProduct ).subscribe(()=>{
 

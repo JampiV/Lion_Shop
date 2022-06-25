@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VerCarritoComponent } from './carrito/ver-carrito/ver-carrito.component';
+import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ProductoListComponent } from './products/product-list/product-list.component';
 
@@ -19,7 +20,19 @@ const routes: Routes = [
         component: VerCarritoComponent
       },
     ]
-  }
+  },
+  {
+    path: 'compras',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'miscompras',
+        component: CompraListComponent,
+      },
+      
+    ]
+  },
+
   
 ];
 

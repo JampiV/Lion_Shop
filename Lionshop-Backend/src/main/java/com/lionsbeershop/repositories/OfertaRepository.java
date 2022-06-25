@@ -1,2 +1,5 @@
-package com.lionsbeershop.repositories;public interface OfertaRepository {
+package com.lionsbeershop.repositories;
+
+
+public interface OfertaRepository  {
 }

@@ -86,6 +86,14 @@ public class UsuarioController {
         return usuarioRepository.save(usuarioN);
 
     }
+    @DeleteMapping("/{idUsuario}/carrito/{idProducto}")
+    public Usuario eliminarProductoAlCarrito(@PathVariable Integer idUsuario, @PathVariable Integer idProducto) {
+        Producto productoN = productoRepository.findById(idProducto).get();
+        Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
+        usuarioService.eliminarProductoAlCarrito(usuarioN, productoN);
+        return usuarioRepository.save(usuarioN);
+
+    }
     @DeleteMapping("/{idUsuario}/milista/{idProducto}")
     public Usuario eliminarProductoListaCompra(@PathVariable Integer idUsuario, @PathVariable Integer idProducto) {
         Producto productoN = productoRepository.findById(idProducto).get();

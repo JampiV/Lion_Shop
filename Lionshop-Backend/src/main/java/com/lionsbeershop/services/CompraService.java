@@ -13,6 +13,7 @@ public interface CompraService {
     void eliminarCompra(Integer idCompra);
     Compra obtenerCompraPorIdCompra(Integer idCompra);
     List<Compra> listarCompra();
+    List<Compra> listarComprasPorIdUsuario(Usuario usuario);
 
     //Funcionalities
     Compra modificarEstadoCompra(Integer idCompra);

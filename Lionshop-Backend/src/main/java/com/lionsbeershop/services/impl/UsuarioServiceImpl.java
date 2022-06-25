@@ -62,6 +62,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     }
     @Override
+    public void eliminarProductoAlCarrito(Usuario usuario, Producto producto) {
+
+        usuario.getCarritoCompras().remove(producto);
+
+    }
+    @Override
     public void eliminarProductoListaCompra(Usuario usuario, Producto producto) {
 
         usuario.getLista_compra().remove(producto);

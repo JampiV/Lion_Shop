@@ -88,4 +88,20 @@ export class LayoutComponent implements OnInit {
     
 
   }
+  irCompras(){
+    if(sessionStorage.getItem('key')==null){
+      const ok = confirm('Debes iniciar sesión para poder ver tus compras');
+    if(ok){
+      
+      window.location.replace(`../login`)
+    }
+    }
+    else{
+      window.location.replace(`../user/compras/miscompras`);
+    }
+   
+    
+
+  }
+
 }

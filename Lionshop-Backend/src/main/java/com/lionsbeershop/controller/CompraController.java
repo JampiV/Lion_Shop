@@ -61,4 +61,9 @@ public class CompraController {
         Compra compra = compraService.obtenerCompraPorIdCompra(idCompra);
         return new WrapperResponse<>(true, "success", compra).createResponse();
     }
+    @GetMapping("/listarPorIdUsuario")
+    public ResponseEntity<WrapperResponse<List<Compra>>> listarComprasPorIdUsuario(@RequestParam Usuario usuario){
+        List<Compra> usuarioid=compraService.listarComprasPorIdUsuario(usuario);
+        return new WrapperResponse<>(true, "success", usuarioid).createResponse();
+    }
 }

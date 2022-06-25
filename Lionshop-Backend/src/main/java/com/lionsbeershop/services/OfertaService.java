@@ -1,2 +1,5 @@
-package com.lionsbeershop.services;public interface OfertaService {
+package com.lionsbeershop.services;
+
+public interface OfertaService {
+
 }

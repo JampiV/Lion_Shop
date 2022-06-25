@@ -58,7 +58,7 @@ export class VerCarritoComponent implements OnInit {
   
       
   eliminarDelCarrito(idProducto:number){
-    const ok = confirm('¿Estás seguro de eliminar este producto al carrito de compras?');
+    const ok = confirm('¿Estás seguro de eliminar este producto al carrito de la lista de deseos?');
     if(ok){
       this.carritoService.eliminarDelCarrito(Number(sessionStorage.getItem('key')),idProducto).subscribe(()=>{
         window.location.reload()
