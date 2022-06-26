@@ -7,6 +7,7 @@ import { ProductoListComponent } from './producto/producto-list/producto-list.co
 import { CategoriaListComponent } from './categoria/categoria-list/categoria-list.component';
 import { NewCategoriaComponent } from './categoria/new-categoria/new-categoria.component';
 import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
+import { OfertaListComponent } from './oferta/oferta-list/oferta-list.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,11 @@ const routes: Routes = [
       {
         path: 'compras',
         component: CompraListComponent,
-      },  
+      },
+      {
+        path: 'ofertas',
+        component: OfertaListComponent,
+      },
     ]
   }
 ];
