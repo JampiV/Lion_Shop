@@ -18,6 +18,7 @@ import { FormCompraComponent } from './compras/shared/form-compra/form-compra.co
 import { EstadocompraListComponent } from './estadocompra/estadocompra-list/estadocompra-list.component';
 import { OfertaListComponent } from './oferta/oferta-list/oferta-list.component';
 import { CrearOfertaComponent } from './oferta/crear-oferta/crear-oferta.component';
+import { FormOfertaComponent } from './oferta/shared/form-oferta/form-oferta.component';
 
 
 
@@ -36,7 +37,8 @@ import { CrearOfertaComponent } from './oferta/crear-oferta/crear-oferta.compone
     FormCompraComponent,
     EstadocompraListComponent,
     OfertaListComponent,
-    CrearOfertaComponent
+    CrearOfertaComponent,
+    FormOfertaComponent
   ],
   imports: [
     CommonModule,

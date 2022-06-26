@@ -8,6 +8,7 @@ import { CategoriaListComponent } from './categoria/categoria-list/categoria-lis
 import { NewCategoriaComponent } from './categoria/new-categoria/new-categoria.component';
 import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
 import { OfertaListComponent } from './oferta/oferta-list/oferta-list.component';
+import { CrearOfertaComponent } from './oferta/crear-oferta/crear-oferta.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: 'ofertas',
         component: OfertaListComponent,
+      },
+      {
+        path:'ofertas/crear',
+        component: CrearOfertaComponent,
       },
     ]
   }

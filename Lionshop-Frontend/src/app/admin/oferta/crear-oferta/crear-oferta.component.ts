@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Oferta } from '../shared/oferta.model';
+import { OfertaService } from '../shared/oferta.service';
 
 @Component({
   selector: 'app-crear-oferta',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearOfertaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ofertaService: OfertaService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
+
+    crearOferta(oferta: Oferta){
+      this.ofertaService.crearOferta(oferta).subscribe(
+        (res) => {
+          console.log(res);
+        //  this.ofertaService.aplicarOferta(oferta.idOferta);
+          this.router.navigate(['/admin/ofertas']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
 
 }

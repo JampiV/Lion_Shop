@@ -39,6 +39,7 @@ export class FormProductoComponent implements OnInit {
     getAllCategorias(){
       this.categoriaService.getAllCategorias().subscribe((data)=>{
         this.categoriasid=data;
+        console.log(this.categoriasid);
       })
     }
   
