@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Oferta } from '../shared/oferta.model';
 import { OfertaService } from '../shared/oferta.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-oferta-list',
@@ -11,10 +13,10 @@ import { OfertaService } from '../shared/oferta.service';
 export class OfertaListComponent implements OnInit {
 
   displayedColumns: string[] = ['idOferta', 'dsctOfertaDeseado', 'cantidadARestar', 'precioActualProducto', 
-  'idProducto', 'nombreProducto', 'costoProducto'];
+  'idProducto', 'nombreProducto', 'costoProducto', 'Aplicar Oferta'];
   dataSource: MatTableDataSource<Oferta>;
 
-  constructor(private ofertaService: OfertaService) { }
+  constructor(private ofertaService: OfertaService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllOfertas();
@@ -26,5 +28,27 @@ export class OfertaListComponent implements OnInit {
      console.log(data['body']);
     });
   }
+
+  aplicarOferta(idOferta: number){
+    this.ofertaService.aplicarOferta(idOferta).subscribe(
+      ()=>{
+        window.location.reload();
+      },
+      (error: any) => { console.log(error); }
+    );
+    }
+
+
+  /*
+    editCompra(compra:Compra){
+
+    this.compraService.update(compra).subscribe(
+      ()=>{
+        this.router.navigate(['/admin/compras']);
+      },
+      (error: any)=> {}
+    );
+  }
+  */
 
 }

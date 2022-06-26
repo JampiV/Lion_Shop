@@ -24,7 +24,7 @@ export class OfertaService {
   }
 
   aplicarOferta(idOferta: number){
-    return this.http.put(`${this.apiBase}/ofertas/`, idOferta);
+    return this.http.put(`${this.apiBase}/ofertas/${idOferta}`, idOferta);
   }
 
   modidicarOferta(oferta: Oferta){
