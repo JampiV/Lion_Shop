@@ -58,6 +58,7 @@ public class Compra {
     @OneToOne
         @JoinColumn(name = "idDonacion")
         private Donacion donacion; //input
+
     //@OneToOne
     //    @JoinColumn(name = "idProduct", nullable = false)
     //    private Producto producto; //INGRESA A MANO

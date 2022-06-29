@@ -23,8 +23,9 @@ public class CompraServiceImpl implements CompraService{
     @Autowired
     private EstadoCompraRepository estadoCompraRepository;
 
-    public CompraServiceImpl(CompraRepository compraRepository){
+    public CompraServiceImpl(CompraRepository compraRepository, DonacionRepository donacionRepository){
         this.compraRepository=compraRepository;
+        this.donacionRepository = donacionRepository;
     }
 
     @Override
@@ -45,7 +46,8 @@ public class CompraServiceImpl implements CompraService{
 
     @Override
     public float obtenerMontoTotal(Usuario usuario, Compra compra) {
-        Donacion donacionDeCompra = compra.getDonacion();
+        Integer IddonacionDeCompra = compra.getDonacion().getIdDonacion();
+        Donacion donacionDeCompra = donacionRepository.getById(IddonacionDeCompra);
         float limosna = donacionDeCompra.getMontoDonar();
         Set<Producto> productos = usuario.getLista_compra(); //Instancia la lista de Productos
         float total=compra.getMontoPago(); //Obtiene el costo de envío (Monto de pago actual)
@@ -67,9 +69,11 @@ public class CompraServiceImpl implements CompraService{
     @Override
     public float obtenerSubtotal(Compra compra) { //Obtiene el monto de pago sin envío
         float subtotal=0f;
+        //
+        float montoLimosna = compra.getDonacion().getMontoDonar();
         float montoCompleto=compra.getMontoPago();
         float montoEnvio= compra.getCostoEnvio();
-        subtotal=montoCompleto-montoEnvio;
+        subtotal=montoCompleto-montoEnvio-montoLimosna;
         return subtotal;
     }
 
