@@ -55,6 +55,21 @@ public class Compra {
     @Column(name = "subtotal",nullable = false)
     private float subtotal;
 
+    @OneToOne
+        @JoinColumn(name = "idDonacion")
+        private Donacion donacion; //input
+    //@OneToOne
+    //    @JoinColumn(name = "idProduct", nullable = false)
+    //    private Producto producto; //INGRESA A MANO
+
+
+    public Donacion getDonacion() {
+        return donacion;
+    }
+
+    public void setDonacion(Donacion donacion) {
+        this.donacion = donacion;
+    }
 
     public Integer getIdCompra() {
         return idCompra;

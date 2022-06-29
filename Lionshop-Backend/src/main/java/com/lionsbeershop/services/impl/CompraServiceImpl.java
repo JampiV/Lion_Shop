@@ -1,12 +1,6 @@
 package com.lionsbeershop.services.impl;
-import com.lionsbeershop.model.EstadoCompra;
-import com.lionsbeershop.model.Compra;
-import com.lionsbeershop.model.Producto;
-import com.lionsbeershop.model.Usuario;
-import com.lionsbeershop.repositories.EstadoCompraRepository;
-import com.lionsbeershop.repositories.CompraRepository;
-import com.lionsbeershop.repositories.ProductoRepository;
-import com.lionsbeershop.repositories.UsuarioRepository;
+import com.lionsbeershop.model.*;
+import com.lionsbeershop.repositories.*;
 import com.lionsbeershop.services.CompraService;
 import com.lionsbeershop.validators.CompraValidator;
 
@@ -19,6 +13,8 @@ import java.util.Set;
 @Service
 public class CompraServiceImpl implements CompraService{
     private final CompraRepository compraRepository;
+
+    private DonacionRepository donacionRepository;
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -33,34 +29,43 @@ public class CompraServiceImpl implements CompraService{
 
     @Override
     public Compra pagarCompra(Compra compra) {
-        compra.setMontoPago(compra.getCostoEnvio());//idUsuario en funcion a carrito
-        Integer idsazo=compra.getUsuario().getIdUsuario();
-        Usuario usuarioFinal=usuarioRepository.getById(idsazo);//monto pago
-        compra.setMontoPago(obtenerMontoTotal(usuarioFinal, compra));
+        compra.setMontoPago(compra.getCostoEnvio());//Le asigna el costo de envío a la compra
+        Integer idsazo=compra.getUsuario().getIdUsuario(); //Obtiene idUsuario de la compra
+        Usuario usuarioFinal=usuarioRepository.getById(idsazo);//Instancia al usuario
+        compra.setMontoPago(obtenerMontoTotal(usuarioFinal, compra)); //Le asigna el monto total de pago a la compra
         //Obtiene el subTotal
-        compra.setSubtotal(obtenerSubtotal(compra));
+        compra.setSubtotal(obtenerSubtotal(compra)); //Obtiene el monto de pago sin envío
         CompraValidator.validate(compra);
-        Set<Producto> nuevaLista = null;
-        usuarioFinal.setLista_compra(nuevaLista);
-        usuarioRepository.save(usuarioFinal);
+        Set<Producto> nuevaLista = null; //Vacia la lista (CARRITO)
+        usuarioFinal.setLista_compra(nuevaLista); //Le asigna la lista vacía al usuario
+        usuarioRepository.save(usuarioFinal); //guarda la nueva información del usuario
         // guarda la compra
         return compraRepository.save(compra);
     }
 
     @Override
     public float obtenerMontoTotal(Usuario usuario, Compra compra) {
-        Set<Producto> productos = usuario.getLista_compra();
-        float total=compra.getMontoPago();
+        Donacion donacionDeCompra = compra.getDonacion();
+        float limosna = donacionDeCompra.getMontoDonar();
+        Set<Producto> productos = usuario.getLista_compra(); //Instancia la lista de Productos
+        float total=compra.getMontoPago(); //Obtiene el costo de envío (Monto de pago actual)
         for (Producto producto : productos){
             //Suma de precios
-            total+=producto.getCosto_producto();
+            total+=producto.getCosto_producto(); //va agregando los precios de los productos de la lista al monto total de pago
             productoRepository.save(producto);
         }
-        return total;
+
+            donacionRepository.save(donacionDeCompra);
+
+        if (limosna > 0.0){
+            return total + limosna;
+        }
+        else{ return total; }
+
     }
 
     @Override
-    public float obtenerSubtotal(Compra compra) {
+    public float obtenerSubtotal(Compra compra) { //Obtiene el monto de pago sin envío
         float subtotal=0f;
         float montoCompleto=compra.getMontoPago();
         float montoEnvio= compra.getCostoEnvio();

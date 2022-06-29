@@ -1,6 +1,7 @@
 package com.lionsbeershop.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -41,6 +42,13 @@ public class Donacion {
     @Size(min = 3, max = 50, message = "El método de pago debe ser mínimo 3 caracteres y máximo 50.")
     @Column(name = "metodo_pago", nullable = false)
     private String metodoPago;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "donacion", cascade = CascadeType.ALL)
+    private Compra compra;
+    //@JsonIgnore
+    //    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    //    private Membresia membresia;
 
     public Integer getIdDonacion() {
         return idDonacion;
