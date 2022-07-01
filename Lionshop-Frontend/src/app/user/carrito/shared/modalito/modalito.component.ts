@@ -16,7 +16,7 @@ export class ModalitoComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.openModal()
-     }, 1500);
+     }, 1000);
   }
   openModal(){
     this.display='block';

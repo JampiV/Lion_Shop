@@ -19,7 +19,13 @@ const routes: Routes = [
       },
       {
         path: 'milista',
-        component: VerCarritoComponent
+        component: VerCarritoComponent,
+        children: [
+          {
+          path: 'donar',
+          component: ModalitoComponent
+          },
+        ]
       },
       {
         path: 'pago',

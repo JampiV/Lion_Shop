@@ -18,9 +18,8 @@ export class VerCarritoComponent implements OnInit {
   precioTotal:any;
   preciot:any;
 
-
   constructor(
-    private carritoService: CarritoService, modalitoComponent: ModalitoComponent
+    private carritoService: CarritoService, //modalito: ModalitoComponent
   ) { }
 
   ngOnInit(): void {
