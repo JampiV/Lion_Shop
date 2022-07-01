@@ -15,6 +15,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatNativeDateModule} from "@angular/material/core";
 import { MatIconModule } from '@angular/material/icon';
+import { ModalitoComponent } from './carrito/shared/modalito/modalito.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     VerCarritoComponent,
     CompraListComponent,
     ProcesoCompraComponent,
+    ModalitoComponent,
   ],
   imports: [
     CommonModule,

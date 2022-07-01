@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Producto } from '../../products/shared/product.model';
 import { CarritoService } from '../shared/carrito.service';
+import { ModalitoComponent } from '../shared/modalito/modalito.component';
 
 @Component({
   selector: 'app-ver-carrito',
@@ -19,7 +20,7 @@ export class VerCarritoComponent implements OnInit {
 
 
   constructor(
-    private carritoService: CarritoService,
+    private carritoService: CarritoService, modalitoComponent: ModalitoComponent
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +47,7 @@ export class VerCarritoComponent implements OnInit {
       }
       
       this.delivery=this.delivery.toFixed(2);
-      this.precioTotal=(Number(this.precioPro)+Number(this.delivery)).toFixed(2);
+      this.precioTotal=(Number(this.precioPro)+Number(this.delivery)).toFixed(2); //+PrecioFormulario+0
       
     });
 
