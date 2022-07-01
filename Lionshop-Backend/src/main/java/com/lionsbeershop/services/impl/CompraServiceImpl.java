@@ -57,7 +57,7 @@ public class CompraServiceImpl implements CompraService{
             productoRepository.save(producto);
         }
 
-            donacionRepository.save(donacionDeCompra);
+        donacionRepository.save(donacionDeCompra);
 
         if (limosna > 0.0){
             return total + limosna;
@@ -116,4 +116,3 @@ public class CompraServiceImpl implements CompraService{
     }
 
 }
-

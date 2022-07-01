@@ -56,8 +56,8 @@ public class Compra {
     private float subtotal;
 
     @OneToOne
-        @JoinColumn(name = "idDonacion")
-        private Donacion donacion; //input
+    @JoinColumn(name = "idDonacion")
+    private Donacion donacion; //input
 
     //@OneToOne
     //    @JoinColumn(name = "idProduct", nullable = false)

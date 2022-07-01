@@ -98,4 +98,3 @@ public class Donacion {
         this.metodoPago = metodoPago;
     }
 }
-
