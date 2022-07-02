@@ -4,6 +4,7 @@ import { ProcesoCompraComponent } from './carrito/proceso-compra/proceso-compra.
 import { ModalitoComponent } from './carrito/shared/modalito/modalito.component';
 import { VerCarritoComponent } from './carrito/ver-carrito/ver-carrito.component';
 import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
+import { DonarApartadoComponent } from './donar-apartado/donar-apartado.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ProductoListComponent } from './products/product-list/product-list.component';
 
@@ -20,13 +21,14 @@ const routes: Routes = [
       {
         path: 'milista',
         component: VerCarritoComponent,
-        children: [
-          {
-          path: 'donar',
-          component: ModalitoComponent
-          },
-        ]
+        
       },
+      {
+        path: 'donar',
+          component: DonarApartadoComponent,
+        
+      },
+
       {
         path: 'pago/:idD',
         component: ProcesoCompraComponent

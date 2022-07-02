@@ -73,6 +73,21 @@ export class LayoutComponent implements OnInit {
 
   }
 
+  irDonar(){
+    if(sessionStorage.getItem('key')==null){
+      const ok = confirm('Debes iniciar sesión para poder ver los items de tu carrito de compras');
+    if(ok){
+      
+      window.location.replace(`../login`)
+    }
+    }
+    else{
+      window.location.replace(`../user/donar`);
+    }
+
+  }
+
+
   irProductos(){
     if(sessionStorage.getItem('key')==null){
       const ok = confirm('Debes iniciar sesión para poder ver los items de tu carrito de compras');

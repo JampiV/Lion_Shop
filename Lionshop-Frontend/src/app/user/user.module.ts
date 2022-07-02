@@ -16,6 +16,8 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatNativeDateModule} from "@angular/material/core";
 import { MatIconModule } from '@angular/material/icon';
 import { ModalitoComponent } from './carrito/shared/modalito/modalito.component';
+import { DonarApartadoComponent } from './donar-apartado/donar-apartado.component';
+import { FormDonacionComponent } from './shared/form-donacion/form-donacion.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { ModalitoComponent } from './carrito/shared/modalito/modalito.component'
     CompraListComponent,
     ProcesoCompraComponent,
     ModalitoComponent,
+    DonarApartadoComponent,
+    FormDonacionComponent,
   ],
   imports: [
     CommonModule,

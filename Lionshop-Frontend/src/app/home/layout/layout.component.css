@@ -1,3 +1,10 @@
+.navbarr{
+    background-color: white;
+    position: sticky;
+    top:0px;
+}
+
+
 .navbar{
     height: 100px;
     justify-content: space-between;
