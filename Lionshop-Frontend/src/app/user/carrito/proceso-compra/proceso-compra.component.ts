@@ -18,8 +18,8 @@ export class ProcesoCompraComponent implements OnInit {
 
   @Input() compra: Compra = new Compra();
   infoEnvio: InfoEnvioModel = new InfoEnvioModel()
-  limosna: Donacion; //a
-  idLimosna: number; //@
+  limosna: Donacion;
+  idLimosna: number;
 
   agregarInfoEnvio(){
     this.infoEnvio.direccionEnvio = this.controlDireccion.value
@@ -113,7 +113,16 @@ export class ProcesoCompraComponent implements OnInit {
   constructor(
     private router: Router,
     private carritoService: CarritoService, public activeRouter: ActivatedRoute, public donacionService: DonacionService
-    ) { }
+    ) {
+//YO ESTUVE AQUÍ
+      this.activeRouter.paramMap.subscribe(params => {
+        this.donacionService.getDonacionPorId(Number(params.get('idD'))).subscribe((donacion: any)=>{
+          this.limosna = donacion['body'];
+          this.idLimosna = donacion['body'].idDonacion;
+        })
+      })
+
+     }
   ngOnInit(): void {
     
 
@@ -182,7 +191,10 @@ export class ProcesoCompraComponent implements OnInit {
       estadoCompra:{
         idEstado: this.compra.estadoCompra=1
       },
-      infoEnvio: this.infoEnvio
+      infoEnvio: this.infoEnvio,
+      donacion: {
+        idDonacion: this.idLimosna,
+      }
     }
 
 

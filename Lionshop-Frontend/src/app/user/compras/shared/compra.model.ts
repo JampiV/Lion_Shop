@@ -11,4 +11,5 @@ export class Compra{
     estadoCompra: estadoCompra;
     costoEnvio: number;
     subTotal: number;
+    donacion: Object;
   }
