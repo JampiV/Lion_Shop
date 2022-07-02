@@ -35,7 +35,7 @@ public class Donacion {
     }
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column(name = "fecha_plantacion",nullable = true)
+    @Column(name = "fecha_plantacion")
     private Date fechaPlantacion;
 
     @NotNull

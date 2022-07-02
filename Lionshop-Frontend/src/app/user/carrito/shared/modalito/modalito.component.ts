@@ -62,18 +62,11 @@ hack(){
       idUsuario: this.donacion.usuario=Number(sessionStorage.getItem('key')),
     },
     montoDonar: 0.0,
-    fechaPlantacion:[
-      this.donacion.fechaPlantacion = this.date.toLocaleDateString(),
-    ],
-    metodoPago:[
-      'Tarjeta de credito',
-    ]
+    fechaPlantacion: new Date().toLocaleDateString(),
+    metodoPago: 'Tarjeta de credito',
+  
   })
   this.onSubmit.emit(this.form.value)
-}
-
-crearDonacion(donacion: Donacion){
-  this.donacionService.crearDonacion(donacion);
 }
 
 
