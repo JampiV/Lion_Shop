@@ -5,6 +5,9 @@ import {Router} from "@angular/router";
 import { CarritoService } from '../shared/carrito.service';
 import { Compra } from '../shared/compra.model';
 import {InfoEnvioModel} from "../shared/infoEnvio";
+import { ActivatedRoute } from '@angular/router';
+import { DonacionService } from 'src/app/shared/donacion/donacion.service';
+import { Donacion } from 'src/app/shared/donacion/donacion.model';
 
 @Component({
   selector: 'app-proceso-compra',
@@ -15,6 +18,8 @@ export class ProcesoCompraComponent implements OnInit {
 
   @Input() compra: Compra = new Compra();
   infoEnvio: InfoEnvioModel = new InfoEnvioModel()
+  limosna: Donacion; //a
+  idLimosna: number; //@
 
   agregarInfoEnvio(){
     this.infoEnvio.direccionEnvio = this.controlDireccion.value
@@ -107,10 +112,10 @@ export class ProcesoCompraComponent implements OnInit {
   ]);
   constructor(
     private router: Router,
-    private carritoService: CarritoService
+    private carritoService: CarritoService, public activeRouter: ActivatedRoute, public donacionService: DonacionService
     ) { }
   ngOnInit(): void {
-
+    
 
   }
   siguiente(){

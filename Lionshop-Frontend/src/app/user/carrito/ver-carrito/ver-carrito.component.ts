@@ -5,6 +5,7 @@ import { CarritoService } from '../shared/carrito.service';
 import { ModalitoComponent } from '../shared/modalito/modalito.component';
 import { Donacion } from 'src/app/shared/donacion/donacion.model';
 import { DonacionService } from 'src/app/shared/donacion/donacion.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ver-carrito',
@@ -19,23 +20,37 @@ export class VerCarritoComponent implements OnInit {
   delivery: any
   precioTotal:any;
   preciot:any;
+  limosna: Donacion;
+  idLimosna: number;
   
   constructor(
-    private carritoService: CarritoService, public donacionService: DonacionService,
-  ) { }
+    private carritoService: CarritoService, public donacionService: DonacionService, public activeRouter: ActivatedRoute
+  ) { 
+   
+  }
 
   ngOnInit(): void {
     this.verProductosCarrito();
+  
   }
 
   crearDonacion(donacion: Donacion){
+
+    this.limosna = donacion;
     this.donacionService.crearDonacion(donacion).subscribe(
-      (res) => {
-        console.log(res);
+      (res:any) => {
+        this.idLimosna = res['body'].idDonacion;
+        console.log(this.limosna);
+        console.log(res.valueOf());
       },
       (err) => {
         console.log(err);}
     );
+  }
+
+  setIdLimosna(donacioncilla: Donacion){
+    this.idLimosna = donacioncilla.idDonacion;
+    console.log(this.idLimosna);
   }
 
   verProductosCarrito(){
@@ -47,7 +62,6 @@ export class VerCarritoComponent implements OnInit {
       for(let i=0; i< data.length; i++){
        
         precio += data[i].costo_producto ;
-        console.log(precio);
       }
       this.precioPro=Number(precio).toFixed(2);
       if(this.precioPro==0){
@@ -80,6 +94,7 @@ export class VerCarritoComponent implements OnInit {
     }
 
     irPago(){
+    
       if(sessionStorage.getItem('key')==null){
         const ok = confirm('Debes iniciar sesión para poder ver tus compras');
       if(ok){
@@ -88,7 +103,7 @@ export class VerCarritoComponent implements OnInit {
       }
       }
       else{
-        window.location.replace(`../user/pago`);
+        window.location.replace(`../user/pago/${this.idLimosna}`);
       }
      
       

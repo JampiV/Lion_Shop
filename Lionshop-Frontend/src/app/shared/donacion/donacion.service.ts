@@ -14,4 +14,9 @@ export class DonacionService {
   crearDonacion(donacion: Donacion){
     return this.http.post(`${this.apiBase}/donaciones`, donacion)
   }
+
+  getDonacionPorId(id: number){
+    return this.http.get(`${this.apiBase}/donaciones/${id}`)
+  }
+ 
 }

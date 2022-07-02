@@ -66,7 +66,8 @@ hack(){
     metodoPago: 'Tarjeta de credito',
   
   })
-  this.onSubmit.emit(this.form.value)
+  this.onSubmit.emit(this.form.value);
+  this.display='none';
 }
 
 

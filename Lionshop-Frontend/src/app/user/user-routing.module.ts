@@ -28,7 +28,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'pago',
+        path: 'pago/:idD',
         component: ProcesoCompraComponent
       },
       {
