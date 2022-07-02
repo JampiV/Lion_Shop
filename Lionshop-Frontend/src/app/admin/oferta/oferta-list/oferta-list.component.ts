@@ -11,7 +11,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./oferta-list.component.css']
 })
 export class OfertaListComponent implements OnInit {
-
   displayedColumns: string[] = ['idOferta', 'dsctOfertaDeseado', 'cantidadARestar', 'precioActualProducto', 
   'idProducto', 'nombreProducto', 'costoProducto', 'Aplicar Oferta'];
   dataSource: MatTableDataSource<Oferta>;
@@ -38,17 +37,8 @@ export class OfertaListComponent implements OnInit {
     );
     }
 
-
-  /*
-    editCompra(compra:Compra){
-
-    this.compraService.update(compra).subscribe(
-      ()=>{
-        this.router.navigate(['/admin/compras']);
-      },
-      (error: any)=> {}
-    );
-  }
-  */
+    
+    
+    
 
 }

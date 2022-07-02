@@ -22,7 +22,6 @@ export class FormOfertaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProductos();
-    console.log(this.oferta);
     
     this.form = this.formbuilder.group({
       dsctOfertaDeseado:[

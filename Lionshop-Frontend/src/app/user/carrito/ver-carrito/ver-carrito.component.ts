@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Producto } from '../../products/shared/product.model';
 import { CarritoService } from '../shared/carrito.service';
 import { ModalitoComponent } from '../shared/modalito/modalito.component';
+import { Donacion } from 'src/app/shared/donacion/donacion.model';
+import { DonacionService } from 'src/app/shared/donacion/donacion.service';
 
 @Component({
   selector: 'app-ver-carrito',
@@ -17,13 +19,23 @@ export class VerCarritoComponent implements OnInit {
   delivery: any
   precioTotal:any;
   preciot:any;
-
+  
   constructor(
-    private carritoService: CarritoService, //modalito: ModalitoComponent
+    private carritoService: CarritoService, public donacionService: DonacionService,
   ) { }
 
   ngOnInit(): void {
     this.verProductosCarrito();
+  }
+
+  crearDonacion(donacion: Donacion){
+    this.donacionService.crearDonacion(donacion).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);}
+    );
   }
 
   verProductosCarrito(){

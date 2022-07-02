@@ -1,6 +1,6 @@
 export class Usuario {
     
-    idUsuario: number;
+    usuario: Object;
     nombreUsuario: string;
     contrasenaUsuario: string;
     direccionUsuario: string;
