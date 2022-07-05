@@ -7,7 +7,7 @@ import { EditProductoComponent } from './producto/edit-producto/edit-producto.co
 import { CategoriaListComponent } from './categoria/categoria-list/categoria-list.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from '../material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormProductoComponent } from './producto/shared/form-producto/form-producto.component';
 import { MatSelectModule } from '@angular/material/select';
 import { NewCategoriaComponent } from './categoria/new-categoria/new-categoria.component';
@@ -19,7 +19,15 @@ import { EstadocompraListComponent } from './estadocompra/estadocompra-list/esta
 import { OfertaListComponent } from './oferta/oferta-list/oferta-list.component';
 import { CrearOfertaComponent } from './oferta/crear-oferta/crear-oferta.component';
 import { FormOfertaComponent } from './oferta/shared/form-oferta/form-oferta.component';
-
+import { DonacionListComponent } from './donaciones/donaciones.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -38,14 +46,24 @@ import { FormOfertaComponent } from './oferta/shared/form-oferta/form-oferta.com
     EstadocompraListComponent,
     OfertaListComponent,
     CrearOfertaComponent,
-    FormOfertaComponent
+    FormOfertaComponent,
+    DonacionListComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressBarModule,
+    NgxMaterialTimepickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTabsModule,
+    FormsModule,
+    MatIconModule
   ]
 })
 export class AdminModule { }

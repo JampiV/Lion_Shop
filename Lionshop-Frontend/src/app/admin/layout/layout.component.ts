@@ -28,4 +28,20 @@ export class LayoutComponent implements OnInit {
 
   }
 
+  irDonaciones(){
+    if(sessionStorage.getItem('key')==null){
+      const ok = confirm('Debes iniciar sesión para poder ver tus donaciones');
+    if(ok){
+      
+      window.location.replace(`../login`)
+    }
+    }
+    else{
+      window.location.replace(`../admin/donaciones`);
+    }
+   
+    
+
+  }
+
 }

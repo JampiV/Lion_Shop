@@ -18,5 +18,24 @@ export class DonacionService {
   getDonacionPorId(id: number){
     return this.http.get(`${this.apiBase}/donaciones/${id}`)
   }
- 
+
+  getAllDonaciones() {
+    return this.http.get<Donacion[]>(`${this.apiBase}/donaciones`);
+  }
+
+  get(id: number) {
+    return this.http.get(`${this.apiBase}/donaciones/${id}`);
+  }
+
+  create(donacion: Donacion) {
+    return this.http.post(`${this.apiBase}/donaciones`, donacion);
+  }
+
+  update(donacion: Donacion) {
+    return this.http.put(`${this.apiBase}/donaciones`, donacion);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.apiBase}/donaciones/${id}`);
+  }
 }

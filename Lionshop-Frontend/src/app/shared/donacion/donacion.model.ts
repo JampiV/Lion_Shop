@@ -5,5 +5,6 @@ export class Donacion {
     montoDonar: number;
     fechaPlantacion: string;
     metodoPago: string;
+    nombreUsuario: string;
 
 }
