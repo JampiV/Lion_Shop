@@ -46,10 +46,6 @@ public class Donacion {
     @JsonIgnore
     @OneToOne(mappedBy = "donacion", cascade = CascadeType.ALL)
     private Compra compra;
-    //@JsonIgnore
-    //    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-    //    private Membresia membresia;
-
     public Integer getIdDonacion() {
         return idDonacion;
     }
