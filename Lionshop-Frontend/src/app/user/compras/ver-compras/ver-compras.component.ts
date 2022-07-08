@@ -18,7 +18,7 @@ export class CompraListComponent implements OnInit {
   estado: any;
   
   
-  displayedColumns: string[] = ['nCompra', 'fechaCompra',  'importeTotal', 'estado'];
+  displayedColumns: string[] = ['nCompra', 'fechaCompra',  'importeTotal', 'estado', 'Recibo'];
   dataSource: MatTableDataSource<Compra>;
   
 

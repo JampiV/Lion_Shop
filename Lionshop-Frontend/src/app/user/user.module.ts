@@ -20,6 +20,7 @@ import { DonarApartadoComponent } from './donar-apartado/donar-apartado.componen
 import { FormDonacionComponent } from './shared/form-donacion/form-donacion.component';
 import { PagarDonacionComponent } from './donar-apartado/pagar-donacion/pagar-donacion.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ModalReciboComponent } from './compras/shared/modal-recibo/modal-recibo.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DonarApartadoComponent,
     FormDonacionComponent,
     PagarDonacionComponent,
+    ModalReciboComponent,
   ],
   imports: [
     CommonModule,
