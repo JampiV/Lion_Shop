@@ -5,7 +5,6 @@ import { Usuario } from 'src/app/shared/usuario.model';
 
 import { Compra } from '../shared/compra.model';
 import { CompraService } from '../shared/compra.service';
-import { ModalReciboComponent } from '../shared/modal-recibo/modal-recibo.component';
 
 
 @Component({
@@ -42,10 +41,6 @@ export class CompraListComponent implements OnInit {
 
   mover(idProducto:number){
     window.location.replace(`${idProducto}/view`);
-  }
-
-  llamarModal(){
-
   }
   
   
