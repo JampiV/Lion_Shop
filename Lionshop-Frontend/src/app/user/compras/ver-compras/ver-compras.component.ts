@@ -31,7 +31,7 @@ export class CompraListComponent implements OnInit {
   getMisCompras(){
     this.compraService.getMisCompras(Number(sessionStorage.getItem('key'))).subscribe((data:any) => {
       this.dataSource = new MatTableDataSource(data['body']);
-      console.log(Number(sessionStorage.getItem('idUsuario')));
+      console.log(Number(sessionStorage.getItem('idUsuario')), 'hjh');
       this.estado=data['body'].estadoCompra.nombreEstado;
     })
   }
