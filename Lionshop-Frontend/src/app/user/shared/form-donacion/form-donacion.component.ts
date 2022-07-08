@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DonacionService } from 'src/app/shared/donacion/donacion.service';
 import { Donacion } from 'src/app/shared/donacion/donacion.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -18,7 +18,7 @@ export class FormDonacionComponent implements OnInit {
 
 // onSubmit: any;
 constructor(
-  private donacionService: DonacionService,
+  //private donacionService: DonacionService,
   private formbuilder: FormBuilder,
   private router:Router,
   ) { }
@@ -30,7 +30,7 @@ constructor(
         idUsuario: this.donacion.usuario=Number(sessionStorage.getItem('key')),
       },
       montoDonar:[
-        this.donacion.montoDonar,
+        this.donacion.montoDonar,[Validators.required, Validators.max(16)]
       ],
       fechaPlantacion:[
         this.donacion.fechaPlantacion = this.date.toLocaleDateString(),
@@ -41,6 +41,8 @@ constructor(
      })
   }
   save(){
-    this.onSubmit.emit(this.form.value); //guarda la donación
+    sessionStorage.setItem('monto_donar', this.form.get('montoDonar')?.value);
+    this.router.navigate(['/user/pagar-donacion']);
+    //this.onSubmit.emit(this.form.value); //guarda la donación
   }
 }

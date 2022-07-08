@@ -5,12 +5,13 @@ import { ModalitoComponent } from './carrito/shared/modalito/modalito.component'
 import { VerCarritoComponent } from './carrito/ver-carrito/ver-carrito.component';
 import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
 import { DonarApartadoComponent } from './donar-apartado/donar-apartado.component';
+import { PagarDonacionComponent } from './donar-apartado/pagar-donacion/pagar-donacion.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ProductoListComponent } from './products/product-list/product-list.component';
 
 const routes: Routes = [
   {
-    
+
     path:'',
     component: LayoutComponent,
     children: [
@@ -21,12 +22,12 @@ const routes: Routes = [
       {
         path: 'milista',
         component: VerCarritoComponent,
-        
+
       },
       {
         path: 'donar',
           component: DonarApartadoComponent,
-        
+
       },
 
       {
@@ -36,7 +37,11 @@ const routes: Routes = [
       {
         path: 'modal',
         component: ModalitoComponent
-      }
+      },
+      {
+        path: 'pagar-donacion',
+        component: PagarDonacionComponent
+      },
     ]
   },
   {
@@ -47,11 +52,11 @@ const routes: Routes = [
         path: 'miscompras',
         component: CompraListComponent,
       },
-      
+
     ]
   },
 
-  
+
 ];
 
 @NgModule({

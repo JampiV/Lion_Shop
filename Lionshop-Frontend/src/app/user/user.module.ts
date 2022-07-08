@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ModalitoComponent } from './carrito/shared/modalito/modalito.component';
 import { DonarApartadoComponent } from './donar-apartado/donar-apartado.component';
 import { FormDonacionComponent } from './shared/form-donacion/form-donacion.component';
+import { PagarDonacionComponent } from './donar-apartado/pagar-donacion/pagar-donacion.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { FormDonacionComponent } from './shared/form-donacion/form-donacion.comp
     ModalitoComponent,
     DonarApartadoComponent,
     FormDonacionComponent,
+    PagarDonacionComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,8 @@ import { FormDonacionComponent } from './shared/form-donacion/form-donacion.comp
     MatNativeDateModule,
     MatTabsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class UserModule { }

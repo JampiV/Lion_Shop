@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Donacion } from 'src/app/shared/donacion/donacion.model';
 import { DonacionService } from 'src/app/shared/donacion/donacion.service';
+import { UsuarioService } from 'src/app/shared/usuario.service';
 
 @Component({
   selector: 'app-donar-apartado',
   templateUrl: './donar-apartado.component.html',
   styleUrls: ['./donar-apartado.component.css']
-})  
+})
 export class DonarApartadoComponent implements OnInit {
-  
-  constructor(public donacionService: DonacionService, private router: Router) {}
+
+  constructor(public donacionService: DonacionService,
+              private router: Router,
+              private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {}
 
@@ -25,5 +28,5 @@ export class DonarApartadoComponent implements OnInit {
       }
     );
   }
-  
+
 }

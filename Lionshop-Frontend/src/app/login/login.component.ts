@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
           var idRol= res.body.rol.idRol;
           console.log(idRol);
           this.id=res.body.idUsuario
-          sessionStorage.setItem('key',this.id);
+          sessionStorage.setItem('key',res.body.idUsuario);
           console.log(sessionStorage.getItem('key'))
-          
+
           const{idUsuario} =res
           console.log(idUsuario);
-          
+
           if(idRol==2){
             window.location.replace("../user");
             //this.router.navigate(['/']);

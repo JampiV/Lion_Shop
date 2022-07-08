@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrarUsuarioComponent } from './registrar/registrar-usuario/registrar-usuario.component';
 import { NewCategoriaComponent } from './admin/categoria/new-categoria/new-categoria.component';
 import { MatSelectModule } from '@angular/material/select';
+import { CompraDonacionComponent } from './user/donar-apartado/compra-donacion/compra-donacion.component';
+//import { CompraDonacionComponent } from './donar-apartado/compra-donacion/compra-donacion.component';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
     LoginComponent,
     RegistrarUsuarioComponent,
     FormRegistrarUsuarioComponent,
+    CompraDonacionComponent,  // YA ESTA OK QUE MAS FALTA
   ],
   imports: [
     BrowserModule,

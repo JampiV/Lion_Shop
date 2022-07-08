@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from '../shared/producto.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductoService } from '../shared/producto.service';
 
 @Component({
@@ -10,12 +11,14 @@ import { ProductoService } from '../shared/producto.service';
 })
 export class NewProductoComponent implements OnInit {
 
-  constructor(public productoService: ProductoService, private router: Router) {}
+
+  constructor(public productoService: ProductoService, private router: Router,private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
   createProducto(producto:Producto) {
     this.productoService.create(producto).subscribe(
+      
       (res) => {
         console.log(res);
         this.router.navigate(['/admin/productos']);
@@ -23,6 +26,11 @@ export class NewProductoComponent implements OnInit {
       (err) => {
         console.log(err);
       }
+      
     );
+    this._snackBar.open('Producto registrado!!', 'OK', {
+      duration: 3000
+    });
+   
   }
 }

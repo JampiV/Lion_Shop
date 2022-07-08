@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     CrearOfertaComponent,
     FormOfertaComponent,
     DonacionListComponent
+
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatNativeDateModule,
     MatTabsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class AdminModule { }
