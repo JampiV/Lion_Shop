@@ -22,7 +22,7 @@ export class ProductoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProductos();
-    console.log(sessionStorage.getItem('idUsuario'))
+    console.log(sessionStorage.getItem('key')) //AQUÍ TAMBIEN ESTABA idUsuario
   }
 
   getAllProductos(){

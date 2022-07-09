@@ -12,13 +12,31 @@ export class ModalReciboComponent implements OnInit {
   @Output() onSubmit: EventEmitter<any>= new EventEmitter();
 
   display: string;
+  compra: any;
 
   constructor(private compraService: CompraService) { }
 
   ngOnInit(): void {
-    console.log(this.idCompra);
-    //this.compraService.getCompraById(this.idCompra);
+  //  console.log(this.idCompra);
+    this.obtenerCompra(this.idCompra || 2);
   }
+
+  obtenerCompra(idCompra: number){
+    this.compraService.getCompraById(idCompra).subscribe((data:any) => {
+     this.compra = data['body'];
+    // console.log(this.compra)
+      });
+    }
+
+  /*
+getMisCompras(){
+    this.compraService.getMisCompras(Number(sessionStorage.getItem('key'))).subscribe((data:any) => {
+      this.dataSource = new MatTableDataSource(data['body']);
+      console.log(Number(sessionStorage.getItem('idUsuario')), 'hjh');
+      this.estado=data['body'].estadoCompra.nombreEstado;
+    })
+  }
+  */
 
 
 }

@@ -32,8 +32,8 @@ export class CompraListComponent implements OnInit {
   getMisCompras(){
     this.compraService.getMisCompras(Number(sessionStorage.getItem('key'))).subscribe((data:any) => {
       this.dataSource = new MatTableDataSource(data['body']);
-      console.log(Number(sessionStorage.getItem('idUsuario')), 'hjh');
-      this.estado=data['body'].estadoCompra.nombreEstado;
+      console.log(Number(sessionStorage.getItem('key')), 'hjh'); //AQUÍ ESTABA idUsuario en getItem
+     // this.estado=data['body'].estadoCompra.nombreEstado; ESTO NO ESTABA CONECTADO
     })
   }
   applyFilter(value: string){

@@ -56,7 +56,7 @@ export class VerCarritoComponent implements OnInit {
   verProductosCarrito(){
     this.carritoService.verCarrito(Number(sessionStorage.getItem('key'))).subscribe((data:any) => {
       this.dataSource = data;
-      console.log(Number(sessionStorage.getItem('idUsuario')));
+      console.log(Number(sessionStorage.getItem('key'))); //AQUÍ TAMBIEN ESTABA idUsuario
       this.preciot=data.costo_producto;
       var precio=0;
      
