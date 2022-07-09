@@ -41,7 +41,7 @@
           <ng-container matColumnDef="Recibo" class="table">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Recibo</th>
             <td mat-cell *matCellDef="let element" class="columnn">
-              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" mat-button><mat-icon>receipt</mat-icon></button>
+              <button type="submit" (click)="sendIdCompra(element.idCompra)" data-bs-toggle="modal" data-bs-target="#exampleModal" mat-button><mat-icon>receipt</mat-icon></button>
             </td>
           </ng-container>
 
@@ -58,7 +58,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <app-modal-recibo #recibo></app-modal-recibo>
+      <app-modal-recibo #recibo [idCompra]=seleccion></app-modal-recibo>
     </div>
   </div>
 </div>

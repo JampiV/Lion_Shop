@@ -16,6 +16,7 @@ export class CompraListComponent implements OnInit {
   usuario =new Usuario();
   public prueba: Array<any> = [];
   estado: any;
+  public seleccion: number;
   
   
   displayedColumns: string[] = ['nCompra', 'fechaCompra',  'importeTotal', 'estado', 'Recibo'];
@@ -43,6 +44,10 @@ export class CompraListComponent implements OnInit {
     window.location.replace(`${idProducto}/view`);
   }
   
+  sendIdCompra(idCompra: number){
+    this.seleccion = idCompra;
+   // console.log(this.seleccion);
+  }
   
   
 }
