@@ -30,9 +30,9 @@
       <td mat-cell *matCellDef="let element">{{ element.nombre_producto }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="categoria_producto">
+    <ng-container matColumnDef="nombre_categoria">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Categoria</th>
-      <td mat-cell *matCellDef="let element">{{ element.categoria_producto }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.category.nombre_categoria }}</td>
     </ng-container>
 
     <ng-container matColumnDef="costo_producto">

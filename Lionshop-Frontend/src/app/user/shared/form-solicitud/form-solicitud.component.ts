@@ -33,7 +33,8 @@ export class FormSolicitudComponent implements OnInit {
     private solicitudService: SolicitudService,
     private formBuilder:FormBuilder,
     private router:Router,
-    private estadoSolicitudService:EstadoSolicitudService
+    private estadoSolicitudService:EstadoSolicitudService,
+    private donacionService:DonacionService
     ) { }
 
     getAllEstadoSolicitudes(){

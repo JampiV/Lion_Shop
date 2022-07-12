@@ -12,7 +12,7 @@ import { ProductoService } from '../shared/producto.service';
 })
 export class ProductoListComponent implements OnInit {
 
-  displayedColumns: string[] = ['idProducto', 'nombre_producto', 'categoria_producto', 'costo_producto', 'acciones'];
+  displayedColumns: string[] = ['idProducto', 'nombre_producto', 'nombre_categoria', 'costo_producto', 'acciones'];
   dataSource : MatTableDataSource<Producto>;
 
 

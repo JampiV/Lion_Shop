@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Donacion } from 'src/app/shared/donacion/donacion.model';
 import { DonacionService } from 'src/app/shared/donacion/donacion.service';
 import { UsuarioService } from 'src/app/shared/usuario.service';
@@ -19,7 +19,7 @@ export class DonacionesListComponent implements OnInit {
   dataSource : MatTableDataSource<Donacion>;
 
 
-  constructor(private donacionService:DonacionService, private route: ActivatedRoute) { }
+  constructor(private donacionService:DonacionService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getMisDonaciones();
@@ -48,4 +48,8 @@ export class DonacionesListComponent implements OnInit {
     }
   }
 
-}
+  editar(id: number) {
+        this.router.navigate(['/user/solicitudes/new']);
+    }
+  }
+
