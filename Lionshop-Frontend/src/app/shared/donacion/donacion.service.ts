@@ -38,4 +38,8 @@ export class DonacionService {
   delete(id: number) {
     return this.http.delete(`${this.apiBase}/donaciones/${id}`);
   }
+
+  getMisDonaciones(id: number){
+    return this.http.get<any>(`${this.apiBase}/donaciones/listarDonacionesPorIdUsuario?usuario=${id}`);
+  }
 }

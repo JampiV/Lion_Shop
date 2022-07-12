@@ -5,10 +5,12 @@ import { ModalitoComponent } from './carrito/shared/modalito/modalito.component'
 import { VerCarritoComponent } from './carrito/ver-carrito/ver-carrito.component';
 import { ModalReciboComponent } from './compras/shared/modal-recibo/modal-recibo.component';
 import { CompraListComponent } from './compras/ver-compras/ver-compras.component';
+import { DonacionesListComponent } from './donar-apartado/donaciones-list/donaciones-list.component';
 import { DonarApartadoComponent } from './donar-apartado/donar-apartado.component';
 import { PagarDonacionComponent } from './donar-apartado/pagar-donacion/pagar-donacion.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ProductoListComponent } from './products/product-list/product-list.component';
+import { NewSolicitudesComponent } from './solicitudes/new-solicitudes/new-solicitudes.component';
 
 const routes: Routes = [
   {
@@ -26,10 +28,20 @@ const routes: Routes = [
 
       },
       {
+        path: 'solicitudes/new',
+        component: NewSolicitudesComponent,
+      },
+      {
         path: 'donar',
           component: DonarApartadoComponent,
 
       },
+      {
+        path: 'misdonaciones',
+        component: DonacionesListComponent,
+
+      },
+
 
       {
         path: 'pago/:idD',
