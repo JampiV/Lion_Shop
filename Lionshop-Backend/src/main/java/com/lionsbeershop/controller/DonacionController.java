@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -47,7 +48,10 @@ public class DonacionController {
     @GetMapping
     public ResponseEntity<WrapperResponse<List<Donacion>>> listarDonacion() {
         List<Donacion> donaciones = donacionService.listarDonacion();
-        return new WrapperResponse<>(true, "success", donaciones).createResponse();
+        List<Donacion> collect = donaciones.stream()
+                .filter (donacion -> donacion.getMontoDonar () >0)
+                .collect(Collectors.toList());
+        return new WrapperResponse<>(true, "success", collect).createResponse();
     }
 
     @GetMapping("/{idDonacion}")
@@ -58,6 +62,9 @@ public class DonacionController {
     @GetMapping("/listarDonacionesPorIdUsuario")
     public ResponseEntity<WrapperResponse<List<Donacion>>> listarDonacionesPorIdUsuario(@RequestParam Usuario usuario){
         List<Donacion> usuarioid=donacionService.listarDonacionesPorIdUsuario(usuario);
-        return new WrapperResponse<>(true, "success", usuarioid).createResponse();
+        List<Donacion> collect1 = usuarioid.stream()
+                .filter (donacion -> donacion.getMontoDonar () >0)
+                .collect(Collectors.toList());
+        return new WrapperResponse<>(true, "success", collect1).createResponse();
     }
 }
