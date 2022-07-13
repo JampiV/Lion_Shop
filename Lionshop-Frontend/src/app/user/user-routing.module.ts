@@ -28,7 +28,7 @@ const routes: Routes = [
 
       },
       {
-        path: 'solicitudes/new',
+        path: 'solicitudes/:id/new',
         component: NewSolicitudesComponent,
       },
       {
@@ -39,7 +39,6 @@ const routes: Routes = [
       {
         path: 'misdonaciones',
         component: DonacionesListComponent,
-
       },
 
 

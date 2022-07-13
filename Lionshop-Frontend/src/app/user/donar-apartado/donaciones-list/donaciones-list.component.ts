@@ -48,8 +48,8 @@ export class DonacionesListComponent implements OnInit {
     }
   }
 
-  editar(id: number) {
-        this.router.navigate(['/user/solicitudes/new']);
+  crearSolicitud(idDonacion: number) {
+        this.router.navigate([`user/solicitudes/${idDonacion}/new`]);
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Solicitud } from '../solicitud.model';
@@ -18,24 +18,28 @@ import { EstadoSolicitudService } from '../estado-solicitud.service';
 export class FormSolicitudComponent implements OnInit {
 
   form: FormGroup;
+  donacion : Donacion;
+  id: number;
+  constructor(public donacionService: DonacionService,private solicitudService: SolicitudService,
+    private formBuilder:FormBuilder,
+    private router:Router,
+    private estadoSolicitudService:EstadoSolicitudService, private activatedRouter: ActivatedRoute) {
+    this.activatedRouter.paramMap.subscribe(params => {
+      this.donacionService.get(Number(params.get('id'))).subscribe((donacion : any)=>{
+        this.donacion = donacion['body'];
+        this.id = donacion['body'].idDonacion;
+      })
+    })
+  }
 
-
-  @Input() set producto(producto: any) {
-    this.form?.patchValue(producto);
+  @Input() set solicitud(solicitud: any) {
+    this.form?.patchValue(solicitud);
   }
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   
   estadoSolicitudid: estadoSolicitud [];
 
  
- // onSubmit: any;
-  constructor(
-    private solicitudService: SolicitudService,
-    private formBuilder:FormBuilder,
-    private router:Router,
-    private estadoSolicitudService:EstadoSolicitudService,
-    private donacionService:DonacionService
-    ) { }
 
     getAllEstadoSolicitudes(){
       this.estadoSolicitudService.getAllEstadoSolicitudes().subscribe((data:any)=>{
@@ -43,6 +47,8 @@ export class FormSolicitudComponent implements OnInit {
         console.log(this.estadoSolicitudid);
       })
     }
+
+    
   
   
     ngOnInit(): void {
@@ -58,7 +64,6 @@ export class FormSolicitudComponent implements OnInit {
         //FALTA VER    Validators.maxLength(100),
           ],
         ],
-        estado_solicitud: '',
         estadoSolicitud: [
           '',
           [
