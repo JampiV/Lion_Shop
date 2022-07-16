@@ -12,7 +12,7 @@ import { SolicitudService } from 'src/app/user/shared/solicitud.service';
 })
 export class SolicitudListComponent implements OnInit {
 
-  displayedColumns: string[] = ['idSolicitud', 'idDonacion', 'nombre_solicitud', 'distrito', 'estadoSolicitud', 'acciones'];
+  displayedColumns: string[] = ['idSolicitud', 'idDonacion', 'nombre_solicitud', 'distrito', 'estadoSolicitud','fechaPlantacion', 'acciones'];
   dataSource : MatTableDataSource<Solicitud>;
 
 
