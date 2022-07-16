@@ -44,4 +44,19 @@ export class LayoutComponent implements OnInit {
 
   }
 
+  irSolicitudes(){
+    if(sessionStorage.getItem('key')==null){
+      const ok = confirm('Debes iniciar sesión para poder ver tus solicitudes');
+    if(ok){
+      
+      window.location.replace(`../login`)
+    }
+    }
+    else{
+      window.location.replace(`../admin/solicitudes`);
+    }
+   
+    
+
+  }
 }

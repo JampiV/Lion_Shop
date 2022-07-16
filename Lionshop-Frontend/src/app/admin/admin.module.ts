@@ -29,6 +29,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SolicitudListComponent } from './solicitudes/solicitudes.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     OfertaListComponent,
     CrearOfertaComponent,
     FormOfertaComponent,
-    DonacionListComponent
+    DonacionListComponent,
+    SolicitudListComponent
 
   ],
   imports: [

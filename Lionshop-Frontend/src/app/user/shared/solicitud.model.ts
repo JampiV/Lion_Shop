@@ -5,7 +5,7 @@ export class Solicitud {
     idSolicitud: number;
     idDonacion: number;
     usuario : any;
-    nomnre_solicitud: string;
+    nombre_solicitud: string;
     distrito: string;
     estadoSolicitud : estadoSolicitud;
   }

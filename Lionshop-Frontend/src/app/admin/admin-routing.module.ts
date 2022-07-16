@@ -10,6 +10,7 @@ import { CompraListComponent } from './compras/ver-compras/ver-compras.component
 import { OfertaListComponent } from './oferta/oferta-list/oferta-list.component';
 import { CrearOfertaComponent } from './oferta/crear-oferta/crear-oferta.component';
 import { DonacionListComponent } from './donaciones/donaciones.component';
+import { SolicitudListComponent } from './solicitudes/solicitudes.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path: 'donaciones',
         component: DonacionListComponent,
+      },
+      {
+        path: 'solicitudes',
+        component: SolicitudListComponent,
       },
     ]
   }
