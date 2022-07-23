@@ -37,9 +37,7 @@ export class FormSolicitudComponent implements OnInit {
   }
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   
-  estadoSolicitudid: estadoSolicitud [];
-
- 
+  estadoSolicitudid: estadoSolicitud [ ];
 
     getAllEstadoSolicitudes(){
       this.estadoSolicitudService.getAllEstadoSolicitudes().subscribe((data:any)=>{
@@ -73,11 +71,20 @@ export class FormSolicitudComponent implements OnInit {
         distrito: [
           ''
         ],
+        solicitud_donacion: [
+          '',
+          [
+            Validators.required,
+          ],
+        ],
+        donacion:['']
       });
     }
     
     save(){
+      this.form.controls['donacion'].setValue(this.donacion);
       this.onSubmit.emit(this.form.value);
+      this.router.navigate(['/user/misdonaciones']);
     }
 
 }

@@ -29,7 +29,17 @@
                   </mat-option>
               </mat-select>
           </mat-form-field>
-  
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+
             <mat-form-field appearance="outline" class="d-block">
                 <mat-label>Distrito</mat-label>
                 <input 
@@ -42,8 +52,21 @@
                     Este Campo es obligatorio
                 </mat-error>
               </mat-form-field>
+
+              <mat-form-field appearance="outline" class="d-block">
+                <mat-label>Solicitud donación</mat-label>
+                <input 
+                  matInput
+                  type="Solicitud"
+                  placeholder="Lugar"
+                  formControlName="solicitud_donacion"
+                />
+                <mat-error *ngIf="form.controls.distrito.hasError('required')">
+                    Este Campo es obligatorio
+                </mat-error>
+              </mat-form-field>
   
-            <button mat-button routerLink="/solicitudes">Cancelar</button>
+            <button mat-button routerLink="/user/misdonaciones" type="button">Cancelar</button>
   
             <button
               mat-raised-button
