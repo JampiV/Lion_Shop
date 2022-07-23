@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.7.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 group = 'com.lionsbeershop'
@@ -16,6 +17,14 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "JampiV_Lion_Shop"
+        property "sonar.organization", "jampiv"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 dependencies {
